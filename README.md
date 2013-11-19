@@ -1,4 +1,4 @@
-# README
+# Student Manager App
 
 =====
 
