@@ -1,4 +1,4 @@
-GA STUDENT MANAGER
+# README
 
 =====
 
