@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
-	
+
+	#need to refine/redo this show method. just using for now to test the oauth and also have a view
+	def show
+		@user = User.find(params[:id])
+	end 
+
 	def callback
 		result = RestClient.post("https://github.com/login/oauth/access_token",
 			{client_id: ENV['CLIENT_ID'],
