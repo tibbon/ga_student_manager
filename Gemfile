@@ -14,6 +14,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
+  gem 'annotate', '>=2.5.0'
 end
 
 # Use jquery as the JavaScript library
