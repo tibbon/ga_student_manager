@@ -14,9 +14,9 @@
 
 class Assignment < ActiveRecord::Base
 	belongs_to :course
-	belongs_to :teacher, :class_name => "User"
-	belongs_to :student, :class_name => "User"
+	belongs_to :user
   validates_inclusion_of :assignment_type, :in => %w[quiz homework project]
+	
 	def quiz
 		self.assignment_type == "quiz"
 	end

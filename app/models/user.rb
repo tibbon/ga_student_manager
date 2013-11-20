@@ -41,10 +41,10 @@
 class User < ActiveRecord::Base
 	has_many :course_memberships, :dependent => :destroy
 	has_many :courses, through: :course_memberships
-	has_many :assignments, :foreign_key => "teacher_id"
-  has_many :quizzes, :class_name => "Assignment", :foreign_key => "student_id"
-  has_many :homeworks, :class_name => "Assignment", :foreign_key => "student_id"
-  has_many :projects, :class_name => "Assignment", :foreign_key => "student_id"
+	has_many :assignments
+  has_many :quizzes, :class_name => "Assignment"
+  has_many :homeworks, :class_name => "Assignment"
+  has_many :projects, :class_name => "Assignment"
 
   validates_inclusion_of :role, :in => %w[student teacher]
 

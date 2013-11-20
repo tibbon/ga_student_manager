@@ -23,7 +23,7 @@ class Course < ActiveRecord::Base
   has_many :homeworks, :class_name => "Assignment"
   has_many :projects, :class_name => "Assignment"
   
-	# scope :current, -> { where("'start_date' < ?", Date.today) && ("'end_date' > ?", Date.today)}
+	scope :current, -> { where("'end_date' > ?", Date.today).not.past}
   scope :past, -> { where("'end_date' < ?", Date.today)}
 
   def teachers
