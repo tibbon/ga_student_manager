@@ -19,6 +19,7 @@ class Course < ActiveRecord::Base
 	has_many :teachers, -> {where :course_memberships.role => 'teacher'}, class_name: 'User' 
 
 	has_many :assignments
+
   has_many :quizzes, :class_name => "Assignment"
   has_many :homeworks, :class_name => "Assignment"
   has_many :projects, :class_name => "Assignment"

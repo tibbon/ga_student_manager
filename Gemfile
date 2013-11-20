@@ -15,7 +15,11 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
   gem 'annotate', '>=2.5.0'
+  gem 'faker'
 end
+
+#for connecting making rest calls to github
+gem 'rest-client'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
