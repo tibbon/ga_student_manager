@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131120014325) do
+ActiveRecord::Schema.define(version: 20131120014900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,16 @@ ActiveRecord::Schema.define(version: 20131120014325) do
     t.string   "session"
     t.datetime "start_date"
     t.datetime "end_date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "student_assignments", force: true do |t|
+    t.boolean  "finished"
+    t.string   "repo_fork"
+    t.string   "travis_data"
+    t.integer  "assignment_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
