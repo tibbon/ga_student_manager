@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 	has_many :student_assignments
 	has_many :assignments, through: :student_assignments
 
-	scope :with_role, lamda{|role| includes(:course_membership).where(:course_memberships => {:role => role}) }
+	# scope :with_role, lamda{|role| includes(:course_membership).where(:course_memberships => {:role => role}) }
    # User.with_role "Student" 
   
   def role

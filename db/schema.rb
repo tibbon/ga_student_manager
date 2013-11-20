@@ -21,7 +21,9 @@ ActiveRecord::Schema.define(version: 20131120014900) do
     t.string   "name"
     t.string   "repo_url"
     t.datetime "due_date"
-    t.string   "kind"
+    t.boolean  "project"
+    t.boolean  "homework"
+    t.boolean  "quiz"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -57,10 +59,13 @@ ActiveRecord::Schema.define(version: 20131120014900) do
   create_table "users", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.boolean  "is_admin"
+    t.boolean  "is_admin",                default: false
     t.string   "telephone"
-    t.text     "address"
     t.string   "email"
+    t.text     "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
     t.string   "emergency_contact"
     t.string   "emergency_contact_phone"
     t.string   "github_url"

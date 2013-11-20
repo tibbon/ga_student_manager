@@ -13,6 +13,6 @@ class Course < ActiveRecord::Base
 	end
 	
 	has_many :assignments
-	scope :current, -> { where("'start_date' < ?", Date.today) && ("'end_date' > ?", Date.today)}
-  scope :past, -> { where("'end_date' < ?", Date.today)}
+	# scope :current, -> { where("'start_date' < ?", Date.today) && ("'end_date' > ?", Date.today)}
+ #  scope :past, -> { where("'end_date' < ?", Date.today)}
 end

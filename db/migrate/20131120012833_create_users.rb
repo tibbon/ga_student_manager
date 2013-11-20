@@ -3,10 +3,13 @@ class CreateUsers < ActiveRecord::Migration
     create_table :users do |t|
     	t.string :first_name
     	t.string :last_name
-    	t.boolean :is_admin
-    	t.string :telephone
-    	t.text :address 
-    	t.string :email
+    	t.boolean :is_admin, default: false
+	   	t.string  :telephone
+	    t.string  :email
+	    t.text  :street_address
+	    t.string  :city
+	    t.string  :state
+	    t.string  :zip_code
     	t.string :emergency_contact
     	t.string :emergency_contact_phone
     	t.string   :github_url

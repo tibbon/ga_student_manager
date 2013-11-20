@@ -14,6 +14,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
+  gem 'faker'
 end
 
 # Use jquery as the JavaScript library
