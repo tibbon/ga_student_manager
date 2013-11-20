@@ -10,3 +10,11 @@ StudentManagerApp::Application.routes.draw do
   get '/users/create' => 'users#create', as: 'create_user'
   get '/users/:id' => 'users#show', as: 'user' #have basic method in place for this now, but we need to refine the view & method
 end
+
+
+
+
+
+
+
+

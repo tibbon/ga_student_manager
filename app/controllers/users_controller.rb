@@ -45,8 +45,8 @@ class UsersController < ApplicationController
 				public_repos: github_user['public_repos'],
 				followers: github_user['followers'] , 
 				following: github_user['following'], 
-				created_profile: github_user['created_at'] , 
-				last_updated_at: github_user['updated_at'] , 
+				created_github_profile: github_user['created_at'] , 
+				last_updated_github_at: github_user['updated_at'] , 
 				public_gists: github_user['public_gists']) 
 			end
 		redirect_to "/sessions/#{user.id}/create"
