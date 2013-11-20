@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
 
-	#need to refine/redo this show method. just using for now to test the oauth and also have a view
+	#need to refine/delete this show and index methods. just using for now to test the oauth and also have a view
+	def index 
+	end 
+	
 	def show
 		@user = User.find(params[:id])
 	end 
@@ -19,12 +22,12 @@ class UsersController < ApplicationController
 
 	def create
 		github_user = JSON.parse(RestClient.get("https://api.github.com/user", {params: {:access_token => @@access_token}}))
-		user = User.where(login: github_user['login']).first
+		user = User.where(github_login: github_user['login']).first
 		unless user
 			user = User.create!(
-				login: github_user['login'],
+				github_login: github_user['login'],
 				github_id: github_user['id'],
-				url: github_user['url'] , 
+				github_url: github_user['url'] , 
 				avatar_url: github_user['avatar_url'],
 				gravatar_id: github_user['gravatar_id'] , 
 				html_url: github_user['html_url'], 

@@ -1,6 +1,6 @@
 StudentManagerApp::Application.routes.draw do
 	#temp root while testing out oauth, need to change
-	root 'users#show'
+	root 'users#index'
 
 
   #Routes for GitHub Oauth
