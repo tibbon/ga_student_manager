@@ -7,6 +7,8 @@ class CreateStudentAssignments < ActiveRecord::Migration
     		t.belongs_to :assignment
     		t.belongs_to :user
     		t.timestamps
-    end
+        end
+    add_index :student_assignments, :assignment_id
+    add_index :student_assignments, :user_id
   end
 end

@@ -34,6 +34,9 @@ ActiveRecord::Schema.define(version: 20131120014900) do
     t.datetime "updated_at"
   end
 
+  add_index "course_memberships", ["course_id"], name: "index_course_memberships_on_course_id", using: :btree
+  add_index "course_memberships", ["user_id"], name: "index_course_memberships_on_user_id", using: :btree
+
   create_table "courses", force: true do |t|
     t.string   "name"
     t.string   "location"
@@ -53,6 +56,9 @@ ActiveRecord::Schema.define(version: 20131120014900) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "student_assignments", ["assignment_id"], name: "index_student_assignments_on_assignment_id", using: :btree
+  add_index "student_assignments", ["user_id"], name: "index_student_assignments_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "first_name"
