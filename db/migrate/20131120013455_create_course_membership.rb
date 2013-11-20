@@ -6,5 +6,7 @@ class CreateCourseMembership < ActiveRecord::Migration
     	t.string :role
     	t.timestamps
     end
+    add_index :course_memberships, :user_id
+    add_index :course_memberships, :course_id 
   end
 end
