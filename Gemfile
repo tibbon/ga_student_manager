@@ -17,6 +17,9 @@ group :development, :test do
   gem 'faker'
 end
 
+#for connecting making rest calls to github
+gem 'rest-client'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
