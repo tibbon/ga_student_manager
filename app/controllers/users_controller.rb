@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+	
 	def callback
 		result = RestClient.post("https://github.com/login/oauth/access_token",
 			{client_id: ENV['CLIENT_ID'],
