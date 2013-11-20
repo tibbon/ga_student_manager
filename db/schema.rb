@@ -21,17 +21,11 @@ ActiveRecord::Schema.define(version: 20131120014325) do
     t.string   "name"
     t.string   "repo_url"
     t.datetime "due_date"
-<<<<<<< HEAD
     t.string   "kind"
-=======
-<<<<<<< HEAD
     t.boolean  "project"
     t.boolean  "homework"
     t.boolean  "quiz"
-=======
     t.string   "assignment_type"
->>>>>>> 4e73e0d6e296f451d972a3c3886fbd68c9dba1e7
->>>>>>> develop
     t.datetime "created_at"
     t.datetime "updated_at"
   end
