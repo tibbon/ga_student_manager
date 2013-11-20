@@ -35,4 +35,6 @@ class Course < ActiveRecord::Base
   	self.users.where(:course_memberships => {:role => "student"})
   end
 
+
 end
+

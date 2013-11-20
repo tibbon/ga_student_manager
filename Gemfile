@@ -14,8 +14,9 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
-  gem 'annotate', '>=2.5.0'
   gem 'faker'
+  gem 'annotate', '>=2.5.0'
+
 end
 
 #for connecting making rest calls to github
