@@ -6,6 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+<<<<<<< HEAD
 
 500.times do
 
@@ -27,3 +28,5 @@ end
 
 
 Course.create(name: "WDI", location: "Boston", session: 'Fall 2013', start_date: Date.today - 1.months, end_date: Date.today + 2.months)
+=======
+>>>>>>> 4e73e0d6e296f451d972a3c3886fbd68c9dba1e7
