@@ -18,3 +18,12 @@ end
 
 
 
+#== Route Map
+# Generated on 21 Nov 2013 16:06
+#
+#                 root GET /                               users#index
+#       users_callback GET /users/callback(.:format)       users#callback
+#  create_user_session GET /sessions/:id/create(.:format)  sessions#create
+# destroy_user_session GET /sessions/:id/destroy(.:format) sessions#destroy
+#          create_user GET /users/create(.:format)         users#create
+#                 user GET /users/:id(.:format)            users#show
