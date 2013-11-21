@@ -17,4 +17,8 @@
 class Contribution < ActiveRecord::Base
 	belongs_to :assignment
 	belongs_to :user
+	scope :homework, -> { includes(:assignment).where('assignment_type = (?)', 'homework').references(:assignment).order('due_date DESC')}
+	scope :quiz, -> { includes(:assignment).where('assignment_type = (?)', 'quiz').references(:assignment).order('due_date DESC')}
+	scope :project, -> { includes(:assignment).where('assignment_type = (?)', 'project').references(:assignment).order('due_date DESC')}
+  delegate :assignment_type, :due_date, to: :assignment, prefix: true
 end
