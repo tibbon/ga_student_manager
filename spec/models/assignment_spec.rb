@@ -16,5 +16,6 @@ require 'spec_helper'
 
 describe Assignment do
   it { should belong_to :course }
-  it { should belong_to :user }
+  it { should have_many :contributions}
+  it { should have_many(:users).through :contributions}
 end

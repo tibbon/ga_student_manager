@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131120013455) do
+ActiveRecord::Schema.define(version: 20131120014325) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assignments", force: true do |t|
+    t.integer  "course_id"
+    t.string   "title"
+    t.text     "description"
+    t.string   "github_login"
+    t.string   "github_repo"
+    t.datetime "due_date"
+    t.string   "assignment_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "course_memberships", force: true do |t|
     t.integer  "user_id"
@@ -23,6 +35,9 @@ ActiveRecord::Schema.define(version: 20131120013455) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "course_memberships", ["course_id"], name: "index_course_memberships_on_course_id", using: :btree
+  add_index "course_memberships", ["user_id"], name: "index_course_memberships_on_user_id", using: :btree
 
   create_table "courses", force: true do |t|
     t.string   "name"
@@ -37,10 +52,13 @@ ActiveRecord::Schema.define(version: 20131120013455) do
   create_table "users", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
-    t.boolean  "is_admin"
+    t.boolean  "is_admin",                default: false
     t.string   "telephone"
-    t.text     "address"
     t.string   "email"
+    t.text     "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
     t.string   "emergency_contact"
     t.string   "emergency_contact_phone"
     t.string   "github_url"
