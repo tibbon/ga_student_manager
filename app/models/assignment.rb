@@ -16,7 +16,6 @@ class Assignment < ActiveRecord::Base
 	belongs_to :course
 	has_many :contributions
 	has_many :users, through: :contributions
-	# has_many :students, class_name: "User", through: :contributions
   validates_inclusion_of :assignment_type, :in => %w[quiz homework project]
 	
 	def quiz
