@@ -51,7 +51,7 @@ first_assignment = Assignment.create(
 Contribution.create(
 	finished: true,
 	repo_fork: "",
-	travis_data: ""
+	travis_data: "",
 	assignment_id: first_assignment.id,
 	user_id: student.id,
 	url: "https://github.com/abigezunt/ga-homework-reddit-hn-rails-ajax/",
