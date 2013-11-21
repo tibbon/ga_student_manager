@@ -1,28 +1,70 @@
-  <div id='header'>
+<div id='header'>
   </div>
 
   <div id='cards-container'>
-  	<div class='card-container'>
-  		<div class='title-card'><span class='card-header'>Contact Info</span></div>
-  		<div class='info-block'></div>
-  	</div>
-  	<div class='card-container'>
-  		<div class='title-card'><span class='card-header'>Quiz Info</span></div>
-  		<div class='info-block'></div>
-  	</div>
+    <div class='card-container'>
+      <div class='title-card'><span class='card-header'>Contact Info</span></div>
+      <div class='info-block'>
+        <table class='container-table'>
+          
+          <tr class='contacts'>
+            <th> <%= @user.name %> </th>
+            <th> <%= @user.email %> </th>
+          </tr>
 
-  	<div class='card-container'>
-  		<div class='title-card'><span class='card-header'>Attendance</span>
-  		</div>
-  		<div class='info-block'>
-  			<div id='attendance-overall'></div>
-  			<div id='attendance-late'></div>
-  			<div id='attendance-absent'></div>
-  		</div>
-  	</div>
+          <tr class='contacts'>
+            <td> <%= @user.phone_number %> </td>
+            <td> <%= @user.github %></td>
+          </tr>
 
-  	<div class='card-container'>
-  		<div class='title-card'><span class='card-header'>Projects</span></div>
-  		<div class='info-block'></div>
-  	</div>
+        </table>
+      </div>
+    </div>
+    <div class='card-container'>
+      <div class='title-card'><span class='card-header'>Quiz Info</span></div>
+      <div class='info-block'>
+         <table class='container-table'>
+          
+          <tr class='quizzes'>
+            <th>Quiz 1</th>
+            <th>90%</th>
+          </tr>
+
+          <tr class='quizzes'>
+            <td>Quiz 2</td>
+            <td>70%</td>
+          </tr>
+          
+        </table>
+      </div>
+    </div>
+
+    <div class='card-container'>
+      <div class='title-card'><span class='card-header'>Attendance</span>
+      </div>
+      <div class='info-block'>
+        <div id='attendance-overall'></div>
+        <div id='attendance-late'></div>
+        <div id='attendance-absent'></div>
+      </div>
+    </div>
+
+    <div class='card-container'>
+      <div class='title-card'><span class='card-header'>Projects</span></div>
+      <div class='info-block'>
+         <table class='container-table'>
+          
+          <tr class='projects'>
+            <th>Project 1</th>
+            <th>100%</th>
+          </tr>
+
+          <tr class='projects'>
+            <td>Project 2</td>
+            <td>80%</td>
+          </tr>
+          
+        </table>
+      </div>
+    </div>
   </div>
