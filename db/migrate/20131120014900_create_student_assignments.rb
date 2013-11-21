@@ -7,6 +7,8 @@ class CreateStudentAssignments < ActiveRecord::Migration
     	t.string :travis_data
     	t.belongs_to :assignment
     	t.belongs_to :user
+        t.string :url
+        t.string :status
     	t.timestamps
     end
 

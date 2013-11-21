@@ -11,24 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131120014325) do
+ActiveRecord::Schema.define(version: 20131120013455) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "assignments", force: true do |t|
-    t.integer  "course_id"
-    t.string   "name"
-    t.string   "repo_url"
-    t.datetime "due_date"
-    t.string   "kind"
-    t.boolean  "project"
-    t.boolean  "homework"
-    t.boolean  "quiz"
-    t.string   "assignment_type"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
   create_table "course_memberships", force: true do |t|
     t.integer  "user_id"
@@ -37,9 +23,6 @@ ActiveRecord::Schema.define(version: 20131120014325) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "course_memberships", ["course_id"], name: "index_course_memberships_on_course_id", using: :btree
-  add_index "course_memberships", ["user_id"], name: "index_course_memberships_on_user_id", using: :btree
 
   create_table "courses", force: true do |t|
     t.string   "name"
@@ -51,22 +34,6 @@ ActiveRecord::Schema.define(version: 20131120014325) do
     t.datetime "updated_at"
   end
 
-<<<<<<< HEAD
-=======
-  create_table "student_assignments", force: true do |t|
-    t.boolean  "finished"
-    t.string   "repo_fork"
-    t.string   "travis_data"
-    t.integer  "assignment_id"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "student_assignments", ["assignment_id"], name: "index_student_assignments_on_assignment_id", using: :btree
-  add_index "student_assignments", ["user_id"], name: "index_student_assignments_on_user_id", using: :btree
-
->>>>>>> 054eb87d309e8806f291582e0ead3083ae916604
   create_table "users", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
