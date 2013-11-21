@@ -1,6 +1,6 @@
-class CreateStudentAssignments < ActiveRecord::Migration
+class CreateContributions < ActiveRecord::Migration
   def change
-    create_table :student_assignments do |t|
+    create_table :contributions do |t|
 
     	t.boolean :finished 
     	t.string :repo_fork
@@ -12,8 +12,8 @@ class CreateStudentAssignments < ActiveRecord::Migration
     	t.timestamps
     end
 
-    add_index :student_assignments, :assignment_id
-    add_index :student_assignments, :user_id
+    add_index :contributions, :assignment_id
+    add_index :contributions, :user_id
 
   end
 end

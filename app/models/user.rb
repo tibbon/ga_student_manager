@@ -39,25 +39,25 @@
 #
 
 class User < ActiveRecord::Base
+  validates_inclusion_of :role, :in => %w[student teacher]
 	has_many :course_memberships, :dependent => :destroy
 	has_many :courses, through: :course_memberships
-	has_many :assignments
-  has_many :quizzes, :class_name => "Assignment"
-  has_many :homeworks, :class_name => "Assignment"
-  has_many :projects, :class_name => "Assignment"
-
-  validates_inclusion_of :role, :in => %w[student teacher]
+  has_many :contributions
+	has_many :assignments, through: :contributions
+  # has_many :quizzes, :class_name => "Assignment"
+  # has_many :homeworks, :class_name => "Assignment"
+  # has_many :projects, :class_name => "Assignment"
 
 	# scope :with_role, lamda{|role| includes(:course_membership).where(:course_memberships => {:role => role}) }
-   # User.with_role "Student" 
+  # User.with_role "Student" 
   
-  def role
-  	CourseMembership.current.where(user_id: self.id).role
-  	#self.course_membership.current.role
-  end
+  # def role
+  # 	CourseMembership.current.where(user_id: self.id).role
+  # 	#self.course_membership.current.role
+  # end
 
-  def current_course
-  	CourseMembership.current.where(user_id: self.id).course
-  end
+  # def current_course
+  # 	CourseMembership.current.where(user_id: self.id).course
+  # end
 
 end

@@ -6,27 +6,25 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-<<<<<<< HEAD
-
-500.times do
-
-User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, telephone: Faker::PhoneNumber.cell_phone, street_address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip_code: Faker::Address.postcode, emergency_contact: Faker::Name.name, emergency_contact_phone: Faker::PhoneNumber.cell_phone)
-
-end
 
 
-5.times do
+# 500.times do
+
+# User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, telephone: Faker::PhoneNumber.cell_phone, street_address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip_code: Faker::Address.postcode, emergency_contact: Faker::Name.name, emergency_contact_phone: Faker::PhoneNumber.cell_phone)
+
+# end
+
+
+# 5.times do
 	
-User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, is_admin: true, telephone: Faker::PhoneNumber.cell_phone, street_address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip_code: Faker::Address.postcode, emergency_contact: Faker::Name.name, emergency_contact_phone: Faker::PhoneNumber.cell_phone)
-end
+# User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, is_admin: true, telephone: Faker::PhoneNumber.cell_phone, street_address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip_code: Faker::Address.postcode, emergency_contact: Faker::Name.name, emergency_contact_phone: Faker::PhoneNumber.cell_phone)
+# end
 
 
-20.times do
+# 20.times do
 	
-User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, telephone: Faker::PhoneNumber.cell_phone, street_address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip_code: Faker::Address.postcode, emergency_contact: Faker::Name.name, emergency_contact_phone: Faker::PhoneNumber.cell_phone)
-end
+# User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, telephone: Faker::PhoneNumber.cell_phone, street_address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip_code: Faker::Address.postcode, emergency_contact: Faker::Name.name, emergency_contact_phone: Faker::PhoneNumber.cell_phone)
+# end
 
 
-Course.create(name: "WDI", location: "Boston", session: 'Fall 2013', start_date: Date.today - 1.months, end_date: Date.today + 2.months)
-=======
->>>>>>> 4e73e0d6e296f451d972a3c3886fbd68c9dba1e7
+# Course.create(name: "WDI", location: "Boston", session: 'Fall 2013', start_date: Date.today - 1.months, end_date: Date.today + 2.months)
