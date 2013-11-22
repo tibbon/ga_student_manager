@@ -39,7 +39,6 @@
 #
 
 class User < ActiveRecord::Base
-  	validates_inclusion_of :role, :in => %w[student teacher]
 	has_many :course_memberships, :dependent => :destroy
 	has_many :courses, through: :course_memberships
   	has_many :contributions
