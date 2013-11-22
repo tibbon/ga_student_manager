@@ -18,7 +18,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'faker'
   gem 'annotate', '>=2.5.0'
-
+  gem 'simplecov'
 end
 
 #for connecting making rest calls to github

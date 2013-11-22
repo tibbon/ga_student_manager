@@ -56,9 +56,12 @@ class User < ActiveRecord::Base
   scope :students, -> { includes(:course_memberships).where('role = (?)', 'student').references(:course_memberships)}
   scope :teachers, -> { includes(:course_memberships).where('role = (?)', 'teacher').references(:course_memberships)}
   
-  def role
-    CourseMembership.where(user_id: self.id).take.role
-    #self.course_membership.current.role
+  def self.students(course)
+    course.students
+  end
+
+  def self.teachers(course)
+    course.teachers
   end
 
   def homeworks
@@ -173,7 +176,7 @@ class User < ActiveRecord::Base
   end
 
   def courses_teaching
-    CourseMembership.where(user_id: self.id, role: "teacher").current.map(&:course) 
+    CourseMembership.where(user_id: self.id, role: "teacher").map(&:course) 
   end
 
 end
