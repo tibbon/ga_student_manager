@@ -21,6 +21,7 @@ end
 
 #for connecting making rest calls to github
 gem 'rest-client'
+gem 'metric_fu'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -5,10 +5,13 @@
 #  id                      :integer          not null, primary key
 #  first_name              :string(255)
 #  last_name               :string(255)
-#  is_admin                :boolean
+#  is_admin                :boolean          default(FALSE)
 #  telephone               :string(255)
-#  address                 :text
 #  email                   :string(255)
+#  street_address          :text
+#  city                    :string(255)
+#  state                   :string(255)
+#  zip_code                :string(255)
 #  emergency_contact       :string(255)
 #  emergency_contact_phone :string(255)
 #  github_url              :string(255)
