@@ -1,10 +1,8 @@
 class AssignmentsController < ApplicationController
 	
 	def show 
-		@assignment = Assignment.where(params[:id])
+		@assignment = Assignment.find(params[:id])
+		@assignment.contributions
 	end 
 
-
-
-	
 end

@@ -1,7 +1,7 @@
 StudentManagerApp::Application.routes.draw do
 	#temp root while testing out oauth, need to change
 	root 'users#index'
-
+	get '/assignments/:id' => 'assignments#show'
 
   #Routes for GitHub Oauth
   get '/users/callback' => 'users#callback'
