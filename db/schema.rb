@@ -11,7 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20131122002629) do
+=======
+ActiveRecord::Schema.define(version: 20131122003344) do
+>>>>>>> bda9f32811eba0c25974d394dfcc3052d9d18f92
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -113,6 +117,9 @@ ActiveRecord::Schema.define(version: 20131122002629) do
     t.string   "last_sign_in_ip"
     t.string   "provider"
     t.string   "uid"
+    t.integer  "absences",                default: 0
+    t.integer  "tardies",                 default: 0
+    t.integer  "excused_absences",        default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
