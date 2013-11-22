@@ -31,6 +31,9 @@ gem 'rails_12factor'
 #connecting with Github API
 gem 'github_api'
 
+#for accessing http
+gem 'httparty'
+
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
