@@ -14,4 +14,9 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+
+# Ignore all my secret codes
 .env
+
+# Ignore the simplecov coverage results
+coverage

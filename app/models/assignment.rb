@@ -4,8 +4,10 @@
 #
 #  id              :integer          not null, primary key
 #  course_id       :integer
-#  name            :string(255)
-#  repo_url        :string(255)
+#  title           :string(255)
+#  description     :text
+#  github_login    :string(255)
+#  github_repo     :string(255)
 #  due_date        :datetime
 #  assignment_type :string(255)
 #  created_at      :datetime
@@ -16,8 +18,8 @@ class Assignment < ActiveRecord::Base
 	belongs_to :course
 	has_many :contributions
 	has_many :users, through: :contributions
-	validates_inclusion_of :assignment_type, :in => %w[quiz homework project]
-	
+  validates_inclusion_of :assignment_type, :in => %w[quiz homework project]
+
 	def quiz
 		self.assignment_type == "quiz"
 	end

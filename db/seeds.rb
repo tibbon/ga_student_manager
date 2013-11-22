@@ -1,30 +1,59 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+student = User.create(
+	first_name: nil, 
+	last_name: nil, 
+	is_admin: false, 
+	telephone: nil, 
+	email: nil, 
+	street_address: nil, 
+	city: nil, 
+	state: nil, 
+	zip_code: nil, 
+	emergency_contact: nil, 
+	emergency_contact_phone: nil, 
+	github_url: "https://api.github.com/users/abigezunt", 
+	html_url: "https://github.com/abigezunt", 
+	repos_url: "https://api.github.com/users/abigezunt/repos", 
+	gists_url: "https://api.github.com/users/abigezunt/gists{/gist_id}", 
+	avatar_url: "https://0.gravatar.com/avatar/afb9c4e3401a6e54d045299f25cfbecf?d=https%3A%2F%2Fidenticons.github.com%2F5c284cd1782086a873770ab06d629e36.png&r=x", 
+	public_repos: 88, 
+	followers: 14, 
+	following: 17, 
+	github_id: 5377229, 
+	github_login: "abigezunt", 
+	gravatar_id: 0, 
+	followers_url: "https://api.github.com/users/abigezunt/followers", 
+	following_url: "https://api.github.com/users/abigezunt/following{/other_user}", 
+	starred_url: "https://api.github.com/users/abigezunt/starred{/owner}{/repo}", 
+	subscriptions_url: "https://api.github.com/users/abigezunt/subscriptions", 
+	organizations_url: "https://api.github.com/users/abigezunt/orgs", 
+	events_url: "https://api.github.com/users/abigezunt/events{/privacy}", 
+	received_events_url: "https://api.github.com/users/abigezunt/received_events", 
+	type: "User", 
+	site_admin: "f", 
+	public_gists: "0", 
+	created_github_profile: "2013-09-03 23:06:57", 
+	last_updated_github_at: "2013-11-21 21:07:38", 
+	biography: "Words words words")
 
+a_course = Course.create(name: "WDI", location: "Boston", session: 'Fall 2013', start_date: Date.today - 1.months, end_date: Date.today + 2.months)
+CourseMembership.create(user: student, course: a_course, role: 'student')
 
+first_assignment = Assignment.create(
+	course_id: Course.first.id,
+	title: "Whatever",
+	description: "More words",
+	github_login: "tibbon",
+	github_repo: "ga-homework-reddit-hn-rails-ajax",
+	due_date: Date.today,
+	assignment_type: "homework"
+)
 
-# 500.times do
-
-# User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, telephone: Faker::PhoneNumber.cell_phone, street_address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip_code: Faker::Address.postcode, emergency_contact: Faker::Name.name, emergency_contact_phone: Faker::PhoneNumber.cell_phone)
-
-# end
-
-
-# 5.times do
-	
-# User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, is_admin: true, telephone: Faker::PhoneNumber.cell_phone, street_address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip_code: Faker::Address.postcode, emergency_contact: Faker::Name.name, emergency_contact_phone: Faker::PhoneNumber.cell_phone)
-# end
-
-
-# 20.times do
-	
-# User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, telephone: Faker::PhoneNumber.cell_phone, street_address: Faker::Address.street_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip_code: Faker::Address.postcode, emergency_contact: Faker::Name.name, emergency_contact_phone: Faker::PhoneNumber.cell_phone)
-# end
-
-
-# Course.create(name: "WDI", location: "Boston", session: 'Fall 2013', start_date: Date.today - 1.months, end_date: Date.today + 2.months)
+Contribution.create(
+	finished: true,
+	repo_fork: "",
+	travis_data: "",
+	assignment_id: first_assignment.id,
+	user_id: student.id,
+	url: "https://github.com/abigezunt/ga-homework-reddit-hn-rails-ajax/",
+	status: "done"
+)

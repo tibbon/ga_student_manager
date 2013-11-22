@@ -6,6 +6,8 @@ gem 'rails', '4.0.0'
 gem 'pg'
 gem 'pry-rails'
 gem 'dotenv-rails'
+gem 'devise'
+gem 'omniauth-github'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
@@ -21,6 +23,7 @@ end
 
 #for connecting making rest calls to github
 gem 'rest-client'
+gem 'metric_fu'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -41,6 +44,9 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
+
+# Use simplecov to monitor test coverage across the project
+gem 'simplecov', :require => false, :group => :test
 
 # Use unicorn as the app server
 # gem 'unicorn'
