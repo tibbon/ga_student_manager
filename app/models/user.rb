@@ -52,6 +52,7 @@ class User < ActiveRecord::Base
 
 	has_many :contributions
 	has_many :assignments, through: :contributions
+  has_many :one_on_ones
 
   scope :students, -> { includes(:course_memberships).where('role = (?)', 'student').references(:course_memberships)}
   scope :teachers, -> { includes(:course_memberships).where('role = (?)', 'teacher').references(:course_memberships)}
