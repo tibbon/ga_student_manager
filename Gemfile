@@ -16,6 +16,9 @@ group :development, :test do
   gem 'shoulda-matchers'
 end
 
+#Bootstrap SASS install
+gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
