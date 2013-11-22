@@ -45,7 +45,7 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable, :omniauthable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, omniauth_providers: [:github]
 
   has_many :course_memberships, :dependent => :destroy
   has_many :courses, through: :course_memberships
@@ -54,5 +54,10 @@ class User < ActiveRecord::Base
 
   def role
     CourseMembership.where(user_id: self.id).take.role
+  end
+
+  def self.find_for_oauth(auth)
+    record = where(provider: auth.provider, uid: auth.uid.to_s).first
+    record || create(provider: auth.provider, uid: auth.uid, email: auth.info.email, password: Devise.friendly_token[0,20])
   end
 end
