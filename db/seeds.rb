@@ -1,6 +1,6 @@
 student = User.create(
-	first_name: Abby, 
-	last_name: Howell, 
+	first_name: "Abby", 
+	last_name: "Howell", 
 	is_admin: false, 
 	telephone: nil, 
 	email: nil, 
