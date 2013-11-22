@@ -83,5 +83,11 @@ class User < ActiveRecord::Base
   def course
     CourseMembership.current.where(user_id: self.id).take.course
   end
-  
+
+  def students
+    if self.teacher?
+      self.course.students
+    end
+  end
+
 end

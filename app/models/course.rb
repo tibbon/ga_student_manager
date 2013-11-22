@@ -13,8 +13,16 @@
 #
 
 class Course < ActiveRecord::Base
-  	has_many :assignments
+  has_many :assignments
 	has_many :course_memberships, :dependent => :destroy
 	has_many :users, :through => :course_memberships
+	scope :current, -> { where('end_date > ?', Date.today).where('start_date < ?', Date.today)}
+
+  def students
+  	CourseMembership.where(course_id: self.id).where(role: 'student').each do |course_membership|
+  		course_membership.user
+  	end
+  end
+
 end
 
