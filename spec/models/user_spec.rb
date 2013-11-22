@@ -52,134 +52,102 @@ describe User do
   it "has a valid factory" do
   	FactoryGirl.create(:user).should be_valid
   end
+
+  describe 'instance methods in User class' do
+  	before :each do
+	  	@rahul = User.create
+	    @amal = User.create
+	    @cori = User.create
+	    @xtine = User.create
+	    @david = User.create
+	    @tom = User.create
+	    @teddy = User.create
+	    @nyc_summer = Course.create(start_date: Date.today - 5.months, end_date: Date.today - 2.months)
+	  	@teddy_enrolls = CourseMembership.create(user: @teddy, course: @nyc_summer, role: "student")
+	  	@xtine_enrolls = CourseMembership.create(user: @xtine, course: @nyc_summer, role: "student")
+	  	@david_teaches = CourseMembership.create(user: @david, course: @nyc_summer, role: "teacher")
+	  	@bos_fall = Course.create(start_date: Date.today - 2.months, end_date: Date.today + 1.month)
+	  	@teddy_gets_promoted = CourseMembership.create(user: @teddy, course: @bos_fall, role: "teacher")
+	  	@david_teaches_again = CourseMembership.create(user: @david, course: @bos_fall, role: "teacher")
+	   	@tom_becomes_a_teacher = CourseMembership.create(user: @tom, course: @bos_fall, role: "teacher")
+	    CourseMembership.create(user: @rahul, course: @bos_fall, role: "student")
+	    CourseMembership.create(user: @amal, course: @bos_fall, role: "student")
+	    CourseMembership.create(user: @cori, course: @bos_fall, role: "student")
+	    @homework_1 = Assignment.create(course: @bos_fall, assignment_type: "homework")
+	    @homework_2 = Assignment.create(course: @bos_fall, assignment_type: "homework")
+	    @quiz_1 = Assignment.create(course: @bos_fall, assignment_type: "quiz")
+	    @quiz_2 = Assignment.create(course: @bos_fall, assignment_type: "quiz")
+	    @project_1 = Assignment.create(course: @bos_fall, assignment_type: "project")
+	    @project_2 = Assignment.create(course: @bos_fall, assignment_type: "project")
+	    @amal_hw = Contribution.create(assignment: @homework_1, user: @amal)
+	    @amal_hw_2 = Contribution.create(assignment: @homework_2, user: @amal)
+	    @rahul_hw = Contribution.create(assignment: @homework_1, user: @rahul)
+	    @amal_project_1 = Contribution.create(assignment: @project_1, user: @amal)
+	    @rahul_quiz_1 = Contribution.create(assignment: @quiz_1, user: @rahul)
+	    @amal_project_2 = Contribution.create(assignment: @project_2, user: @amal)
+	    @rahul_quiz_2 = Contribution.create(assignment: @quiz_2, user: @rahul)
+	    @rahul_project_1 = Contribution.create(assignment: @project_1, user: @rahul)
+	  end
+
   
-  it "returns a list of homeworks in an array" do
-    a_student = FactoryGirl.create(:user)
-    course = Course.create(start_date: Date.today - 2.months, end_date: Date.today + 1.month)
-    homework = Assignment.create(assignment_type: "homework")
-    my_homework = Contribution.create(assignment: homework, user: a_student)
-    another_homework = Assignment.create(assignment_type: "homework")
-    a_quiz = Assignment.create(assignment_type: "quiz")
-    my_other_homework = Contribution.create(assignment: another_homework, user: a_student)
-    my_quiz = Contribution.create(assignment: a_quiz, user: a_student)
-    a_student.homeworks.should =~ [my_homework, my_other_homework]
-  end
+	  it "returns a list of homeworks in an array" do
+	    @rahul.homeworks.should =~ [@rahul_hw]
+	    @amal.homeworks.should =~ [@amal_hw, @amal_hw_2]
+	  end
 
-  it "returns a list of quizzes in an array" do
-    a_student = FactoryGirl.create(:user)
-    course = Course.create(start_date: Date.today - 2.months, end_date: Date.today + 1.month)
-    quiz = Assignment.create(assignment_type: "quiz")
-    my_quiz = Contribution.create(assignment: quiz, user: a_student)
-    another_quiz = Assignment.create(assignment_type: "quiz")
-    a_homework = Assignment.create(assignment_type: "homework")
-    my_other_quiz = Contribution.create(assignment: another_quiz, user: a_student)
-    my_homework = Contribution.create(assignment: a_homework, user: a_student)
-    a_student.quizzes.should =~ [my_quiz, my_other_quiz]
-  end
+	  it "returns a list of quizzes in an array" do
+	  	@amal.quizzes.should == []
+	    @rahul.quizzes.should =~ [@rahul_quiz_1, @rahul_quiz_2]
+	  end
 
-  it "returns a list of projects in an array" do
-  	a_student = FactoryGirl.create(:user)
-    course = Course.create(start_date: Date.today - 2.months, end_date: Date.today + 1.month)
-    project = Assignment.create(assignment_type: "project")
-    my_project = Contribution.create(assignment: project, user: a_student)
-    another_project = Assignment.create(assignment_type: "project")
-    a_homework = Assignment.create(assignment_type: "homework")
-    my_other_project = Contribution.create(assignment: another_project, user: a_student)
-    my_homework = Contribution.create(assignment: a_homework, user: a_student)
-    a_student.projects.should =~ [my_project, my_other_project]
-  end
+	  it "returns a list of projects in an array" do
+	    @amal.projects.should =~ [@amal_project_1, @amal_project_2]
+	    @rahul.projects.should =~ [@rahul_project_1]
+	  end
 
-  it "returns its role as a string" do
-  	a_student = FactoryGirl.create(:user, first_name: "Abby")
-  	course = Course.create(start_date: Date.today - 2.months, end_date: Date.today + 1.month)
-  	student_membership = CourseMembership.create(role: "student", user_id: a_student.id, course: course)
-  	a_student.role.should == "student"
-    a_teacher = FactoryGirl.create(:user, first_name: "Tom")
-  	teacher_membership = CourseMembership.create(role: "teacher", user: a_teacher, course: course)
-  	a_teacher.role.should == "teacher"
-  end
+	  it "returns its role as a string" do
+	    @rahul.role.should == "student"
+	    @tom.role.should == "teacher"
+	    @teddy.role.should == "teacher"
+	    @amal.role.should == "student"
+	  end
 
-  it "responds with true when asked if it is a student" do
-    a_student = FactoryGirl.create(:user, first_name: "Abby")
-  	course = Course.create(start_date: Date.today - 2.months, end_date: Date.today + 1.month)
-  	student_membership = CourseMembership.create(role: "student", user_id: a_student.id, course: course)
-  	a_student.student?.should == true
-  end
+	  it "responds with true when asked if it is a student" do
+	    @amal.student?.should == true
+	  end
 
-  it "responds with false when a teacher is asked if they are a student" do
-    a_teacher = FactoryGirl.create(:user, first_name: "Tom")
-   	course = Course.create(start_date: Date.today - 2.months, end_date: Date.today + 1.month)
-   	teacher_membership = CourseMembership.create(role: "teacher", user: a_teacher, course: course)
-  	a_teacher.student?.should == false
-  end
-  
-  it "should consider only current course memberships when returning role info" do
-    teddy = User.create(first_name: "Teddy")
-    nyc_summer = Course.create(start_date: Date.today - 5.months, end_date: Date.today - 2.months)
-  	teddy_enrolls = CourseMembership.create(user: teddy, course: nyc_summer, role: "student")
-  	bos_fall = Course.create(start_date: Date.today - 2.months, end_date: Date.today + 1.month)
-  	teddy_gets_promoted = CourseMembership.create(user: teddy, course: bos_fall, role: "teacher")
-  	teddy.role.should == "teacher"
-  	teddy.student?.should == false
-  	teddy.teacher?.should == true
-  end
-    
-  it "responds with true  when asked if a teacher is a teacher" do
-    a_teacher = FactoryGirl.create(:user, first_name: "David")
-  	course = Course.create(start_date: Date.today - 2.months, end_date: Date.today + 1.month)
-  	teacher_membership = CourseMembership.create(role: "teacher", user_id: a_teacher.id, course: course)
-  	a_teacher.teacher?.should == true
-  end
+	  it "responds with false when a teacher is asked if they are a student" do
+	    @tom.student?.should == false
+	  end
+	  
+	  it "should consider only current course memberships when returning role info" do
+	  	@teddy.student?.should == false
+	  	@teddy.teacher?.should == true
+	  end
+	    
+	  it "responds with true  when asked if a teacher is a teacher" do
+	    @tom.teacher?.should == true
+	  end
 
-  it "responds with false when a student is asked if they are a teacher" do
-    a_student = FactoryGirl.create(:user, first_name: "Tom")
-   	course = Course.create(start_date: Date.today - 2.months, end_date: Date.today + 1.month)
-   	student_membership = CourseMembership.create(role: "student", user: a_student, course: course)
-  	a_student.teacher?.should == false
-  end
+	  it "responds with false when a student is asked if they are a teacher" do
+	    @amal.teacher?.should == false
+	  end
 
-  it "returns its course" do
-  	a_student = FactoryGirl.create(:user, first_name: "Tom")
-   	course = Course.create(start_date: Date.today - 2.months, end_date: Date.today + 1.month)
-    student_membership = CourseMembership.create(role: "student", user: a_student, course: course)
-    a_student.course.should == course
-  end
+	  it "returns its course" do
+	    @amal.course.should == @bos_fall
+	  end
 
-  it "returns a list of its students in an array" do
-    rahul = User.create
-    amal = User.create
-    teddy = User.create
-    tom = User.create
-    wdi = Course.create(start_date: Date.today - 2.months, end_date: Date.today + 1.month)
-    CourseMembership.create(user: rahul, course: wdi, role: "student")
-    CourseMembership.create(user: amal, course: wdi, role: "student")
-    CourseMembership.create(user: teddy, course: wdi, role: "teacher")
-    CourseMembership.create(user: tom, course: wdi, role: "teacher")
-    tom.students.should =~ [rahul, amal]
-    teddy.students.should =~ [rahul, amal]
-    rahul.students.should be nil
-    amal.students.should be nil
-  end
+	  it "returns a list of its students in an array" do
+	    @tom.students.should =~ [@rahul, @amal, @cori]
+	    @teddy.students.should =~ [@rahul, @amal, @cori]
+	    @rahul.students.should be nil
+	    @amal.students.should be nil
+	  end
 
-  it "returns a list of all students and teachers in an array" do
-    rahul = User.create
-    amal = User.create
-    cori = User.create
-    david = User.create
-    tom = User.create
-    teddy = User.create
-    nyc_summer = Course.create(start_date: Date.today - 5.months, end_date: Date.today - 2.months)
-  	teddy_enrolls = CourseMembership.create(user: teddy, course: nyc_summer, role: "student")
-  	david_teaches = CourseMembership.create(user: david, course: nyc_summer, role: "teacher")
-  	bos_fall = Course.create(start_date: Date.today - 2.months, end_date: Date.today + 1.month)
-  	teddy_gets_promoted = CourseMembership.create(user: teddy, course: bos_fall, role: "teacher")
-  	david_teaches_again = CourseMembership.create(user: david, course: bos_fall, role: "teacher")
-   	tom_becomes_a_teacher = CourseMembership.create(user: tom, course: bos_fall, role: "teacher")
-    CourseMembership.create(user: rahul, course: bos_fall, role: "student")
-    CourseMembership.create(user: amal, course: bos_fall, role: "student")
-    CourseMembership.create(user: cori, course: bos_fall, role: "student")
-  	User.teachers(bos_fall).should =~ [tom, teddy, david]
-  	User.students(bos_fall).should =~ [cori, amal, rahul]
+	  it "returns a list of all students and teachers in an array" do
+	  	User.teachers(@bos_fall).should =~ [@tom, @teddy, @david]
+	  	User.students(@bos_fall).should =~ [@cori, @amal, @rahul]
+	  end
   end
 
 end
