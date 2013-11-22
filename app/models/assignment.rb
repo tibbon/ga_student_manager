@@ -32,7 +32,7 @@ class Assignment < ActiveRecord::Base
 		self.assignment_type == "project"
 	end
 
-
+	
 	def create_contributions
 		# github_url looks like: AmalHussein/ga-string-analysis-homework, and will be input by the teacher
 		pull_requests = HTTParty.get("https://api.github.com/repos/#{github_repo}/pulls")
