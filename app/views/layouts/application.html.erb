@@ -7,19 +7,22 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<% if current_user %>
-	    <div class = 'nav_button'>
-	      <%= link_to 'Profile', user_path(current_user.id) %>
-	    </div>
-	    <div class = 'nav_button'>
-	      <%= link_to 'Logout', destroy_user_session_path(current_user.id) %>
-	    </div>
-  <% else %>
-	    <div class = 'nav_button'>  <!-- need to refine the link below to hide the CLIENT_ID -->
-	    <a href='https://github.com/login/oauth/authorize?client_id=<%=ENV["CLIENT_ID"]%>'>Login</a>
-    	</div>
-  <% end %>
 
+<% if current_user %>
+    <div class = 'nav_button'>
+      <%= link_to 'Profile', edit_user_registration_path(user: current_user.id) %>
+    </div>
+    <div class = 'nav_button'>
+      <%= link_to 'Logout', destroy_user_session_path(user: current_user.id) %>
+    </div>
+<% else %>
+    <div class = 'nav_button'>  <!-- need to refine the link below to hide the CLIENT_ID -->
+	    <%= link_to 'Sign in with Github', user_omniauth_authorize_path(:github) %>
+  	</div>
+<% end %>
+
+ <p class="notice"><%= notice %></p>
+ <p class="alert"><%= alert %></p>
 
 <%= yield %>
 

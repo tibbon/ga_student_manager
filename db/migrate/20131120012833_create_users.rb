@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration
     	t.string :last_name
     	t.boolean :is_admin, default: false
 	   	t.string  :telephone
-	    t.string  :email
+	    t.string  :email, :null => false, :default => ""
 	    t.text  :street_address
 	    t.string  :city
 	    t.string  :state
