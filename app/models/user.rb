@@ -136,7 +136,6 @@ class User < ActiveRecord::Base
 
 
     record = where(provider: auth.provider, uid: auth.uid.to_s).first
-    binding.pry
     record || create( provider: auth.provider, 
                       first_name: auth.info.name.split(' ').first,
                       last_name: auth.info.name.split(' ').last,
