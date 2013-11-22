@@ -1,7 +1,10 @@
 class UsersController < ApplicationController
 
-	#need to refine/delete this show and index methods. just using for now to test the oauth and also have a view
 	def index 
+		# returns all the courses ever taught by the current user
+		@courses = current_user.courses_teaching
+
+		
 	end 
 	
 	def show

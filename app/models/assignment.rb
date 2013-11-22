@@ -19,7 +19,7 @@ class Assignment < ActiveRecord::Base
 	has_many :contributions
 	has_many :users, through: :contributions
   validates_inclusion_of :assignment_type, :in => %w[quiz homework project]
-	
+
 	def quiz
 		self.assignment_type == "quiz"
 	end

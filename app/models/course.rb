@@ -24,5 +24,17 @@ class Course < ActiveRecord::Base
   	end
   end
 
+  def quizzes
+  	Assignment.where(course_id: self.id).where(assignment_type: 'quiz')
+  end
+
+  def projects
+  	Assignment.where(course_id: self.id).where(assignment_type: 'project')
+  end
+
+  def homeworks
+  	Assignment.where(course_id: self.id).where(assignment_type: 'homework')
+  end
+
 end
 
