@@ -48,20 +48,40 @@ class User < ActiveRecord::Base
 	has_many :contributions
 	has_many :assignments, through: :contributions
 
-	has_many :quizzes, :class_name => "Contribution"
-  has_many :homeworks, :class_name => "Contribution"
-  has_many :projects, :class_name => "Contribution"
-
-  # scope :with_role, lamda{|role| includes(:course_membership).where(:course_memberships => {:role => role}) }
-  # User.with_role "Student" 
-
+  scope :students, -> { includes(:course_memberships).where('role = (?)', 'student').references(:course_memberships)}
+  scope :teachers, -> { includes(:course_memberships).where('role = (?)', 'teacher').references(:course_memberships)}
   
   def role
     CourseMembership.where(user_id: self.id).take.role
     #self.course_membership.current.role
   end
 
-  # def current_course
-  #         CourseMembership.current.where(user_id: self.id).course
-  # end
+  def homeworks
+    self.contributions.homework
+  end
+
+  def quizzes
+    self.contributions.quiz
+  end
+
+  def projects
+    self.contributions.project
+  end
+
+  def role
+    self.course_memberships.current.take.role
+  end
+
+  def student?
+    self.course_memberships.current.take.role == 'student'
+  end
+
+  def teacher?
+    self.course_memberships.current.take.role == 'teacher'
+  end
+
+  def course
+    CourseMembership.current.where(user_id: self.id).take.course
+  end
+  
 end

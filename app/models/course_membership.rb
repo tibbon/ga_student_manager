@@ -13,4 +13,7 @@
 class CourseMembership < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :course
+ #scope :project, -> { includes(:assignment).where('assignment_type = (?)', 'project').references(:assignment).order('due_date DESC')}
+  
+	scope :current, -> { includes(:course).where('end_date > ?', Date.today).where('start_date < ?', Date.today).references(:course)}
 end
