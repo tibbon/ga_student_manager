@@ -1,4 +1,5 @@
 StudentManagerApp::Application.routes.draw do
+  devise_for :users
 	#temp root while testing out oauth, need to change
 	root 'users#index'
 
