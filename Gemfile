@@ -16,12 +16,17 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'faker'
   gem 'annotate', '>=2.5.0'
-
+  gem 'capybara'
+  gem 'launchy'
+  gem 'database_cleaner'
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+  gem 'metric_fu'
 end
 
 #for connecting making rest calls to github
 gem 'rest-client'
-gem 'metric_fu'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
