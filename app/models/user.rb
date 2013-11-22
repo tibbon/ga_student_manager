@@ -90,4 +90,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def courses_teaching
+    CourseMembership.where(user_id: self.id, role: "teacher").current.map(&:course) 
+  end
+
 end
