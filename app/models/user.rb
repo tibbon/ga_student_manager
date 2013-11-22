@@ -140,39 +140,6 @@ class User < ActiveRecord::Base
       # Reject Login
       return false
     end
-
-    record = where(provider: auth.provider, uid: auth.uid.to_s).first
-    record || create( provider: auth.provider, 
-                      first_name: auth.info.name.split(' ').first,
-                      last_name: auth.info.name.split(' ').last,
-                      uid: auth.uid, 
-                      github_url: auth.extra.raw_info.url,
-                      repos_url: auth.extra.raw_info.repos_url,
-                      gists_url: auth.extra.raw_info.repos_url,
-                      html_url: auth.extra.raw_info.html_url,
-                      avatar_url: auth.extra.raw_info.avatar_url,
-                      followers: auth.extra.raw_info.followers,
-                      following: auth.extra.raw_info.following,
-                      github_id: auth.extra.raw_info["id"],
-                      github_login: auth.extra.raw_info.login,
-                      gravatar_id: auth.extra.raw_info.gravatar_id,
-                      followers_url: auth.extra.raw_info.followers_url,
-                      following_url: auth.extra.raw_info.following_url,
-                      subscriptions_url: auth.extra.raw_info.subscriptions_url,
-                      organizations_url: auth.extra.raw_info.organizations_url,
-                      events_url: auth.extra.raw_info.events_url,
-                      received_events_url: auth.extra.raw_info.received_events_url,
-                      type: auth.extra.raw_info.type,
-                      public_gists: auth.extra.raw_info.public_gists,
-                      public_gists: auth.extra.raw_info.public_gists,
-                      site_admin: auth.extra.raw_info.site_admin,
-                      starred_url: auth.extra.raw_info.starred_url,
-                      public_repos: auth.extra.raw_info.public_repos,
-                      created_github_profile: auth.extra.raw_info.created_at,
-                      last_updated_github_at: auth.extra.raw_info.updated_at,
-                      biography: auth.extra.raw_info.bio,
-                      email: auth.info.email, 
-                      password: Devise.friendly_token[0,20])
   end
   
   def quizzes
