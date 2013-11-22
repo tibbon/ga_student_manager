@@ -13,4 +13,6 @@
 class CourseMembership < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :course
+	scope :current, -> { includes(:course).where('end_date > ?', Date.today).where('start_date < ?', Date.today).references(:course)}
+	validates_inclusion_of :role, :in => %w[teacher student]
 end
