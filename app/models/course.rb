@@ -22,5 +22,9 @@ class Course < ActiveRecord::Base
   	CourseMembership.where(course_id: self.id).where(role: 'student').map(&:user) 
   end
 
+  def teachers
+  	CourseMembership.where(course_id: self.id).where(role: 'teacher').map(&:user) 
+  end
+
 end
 

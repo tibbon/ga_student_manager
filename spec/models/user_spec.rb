@@ -160,4 +160,26 @@ describe User do
     rahul.students.should be nil
     amal.students.should be nil
   end
+
+  it "returns a list of all students and teachers in an array" do
+    rahul = User.create
+    amal = User.create
+    cori = User.create
+    david = User.create
+    tom = User.create
+    teddy = User.create
+    nyc_summer = Course.create(start_date: Date.today - 5.months, end_date: Date.today - 2.months)
+  	teddy_enrolls = CourseMembership.create(user: teddy, course: nyc_summer, role: "student")
+  	david_teaches = CourseMembership.create(user: david, course: nyc_summer, role: "teacher")
+  	bos_fall = Course.create(start_date: Date.today - 2.months, end_date: Date.today + 1.month)
+  	teddy_gets_promoted = CourseMembership.create(user: teddy, course: bos_fall, role: "teacher")
+  	david_teaches_again = CourseMembership.create(user: david, course: bos_fall, role: "teacher")
+   	tom_becomes_a_teacher = CourseMembership.create(user: tom, course: bos_fall, role: "teacher")
+    CourseMembership.create(user: rahul, course: bos_fall, role: "student")
+    CourseMembership.create(user: amal, course: bos_fall, role: "student")
+    CourseMembership.create(user: cori, course: bos_fall, role: "student")
+  	User.teachers(bos_fall).should =~ [tom, teddy, david]
+  	User.students(bos_fall).should =~ [cori, amal, rahul]
+  end
+
 end
