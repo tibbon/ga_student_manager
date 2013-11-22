@@ -16,7 +16,7 @@ class Assignment < ActiveRecord::Base
 	belongs_to :course
 	has_many :contributions
 	has_many :users, through: :contributions
-  validates_inclusion_of :assignment_type, :in => %w[quiz homework project]
+	validates_inclusion_of :assignment_type, :in => %w[quiz homework project]
 	
 	def quiz
 		self.assignment_type == "quiz"
@@ -30,22 +30,17 @@ class Assignment < ActiveRecord::Base
 		self.assignment_type == "project"
 	end
 
-	def create_or_update_contributions
-		# repo_url looks like: abigezunt/ga-string-analysis-homework
+	def create_contributions
+		# github_url looks like: AmalHussein/ga-string-analysis-homework, and will be input by the teacher
 		pull_requests = HTTParty.get("https://api.github.com/repos/#{github_repo}/pulls")
 		pull_requests.each do |pr|
-			begin
-				Contribution.create(			assignment_id: self.id,
-																	github_id: pr["id"], 
-																	user_id: User.where(github_login: (pr["user"]["login"] || 1)).first,
-																	url: pr["html_url"],
-																	repo_fork: pr["head"]["repo"]["html_url"],
-																	created_at: pr["created_at"],
-																	updated_at: pr["updated_at"]
-																	)
-			rescue
-			end
+			Contribution.create( assignment_id: self.id,
+				github_id: pr["id"], 
+				user_id: User.where(github_login: (pr["user"]["login"] || 1)).first,
+				url: pr["html_url"],
+				repo_fork: pr["head"]["repo"]["html_url"],
+				created_at: pr["created_at"],
+				updated_at: pr["updated_at"])
 		end
 	end
-
 end
