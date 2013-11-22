@@ -19,9 +19,7 @@ class Course < ActiveRecord::Base
 	scope :current, -> { where('end_date > ?', Date.today).where('start_date < ?', Date.today)}
 
   def students
-  	CourseMembership.where(course_id: self.id).where(role: 'student').each do |course_membership|
-  		course_membership.user
-  	end
+  	CourseMembership.where(course_id: self.id).where(role: 'student').map(&:user) 
   end
 
 end

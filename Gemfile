@@ -18,6 +18,7 @@ group :development, :test do
   gem 'faker'
   gem 'annotate', '>=2.5.0'
   gem 'capybara'
+  gem 'guard-rspec'
   gem 'launchy'
   gem 'database_cleaner'
   gem 'better_errors'

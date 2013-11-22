@@ -51,10 +51,7 @@ class User < ActiveRecord::Base
   scope :students, -> { includes(:course_memberships).where('role = (?)', 'student').references(:course_memberships)}
   scope :teachers, -> { includes(:course_memberships).where('role = (?)', 'teacher').references(:course_memberships)}
   
-  def role
-    CourseMembership.where(user_id: self.id).take.role
-    #self.course_membership.current.role
-  end
+  # TODO; maybe we should have a separate github profile table for users so the users table has fewer columns <-- great advice from Tom
 
   def homeworks
     self.contributions.homework
