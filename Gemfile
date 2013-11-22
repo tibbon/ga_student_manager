@@ -39,5 +39,8 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+# Use simplecov to monitor test coverage across the project
+gem 'simplecov', :require => false, :group => :test
+
 # Use unicorn as the app server
 # gem 'unicorn'
