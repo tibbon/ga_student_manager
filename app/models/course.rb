@@ -36,6 +36,7 @@ class Course < ActiveRecord::Base
 
   def homeworks
   	Assignment.where(course_id: self.id).where(assignment_type: 'homework').order('due_date DESC')
+
   end
 
 end

@@ -49,10 +49,10 @@ describe User do
   it { should have_many :contributions }
   it { should have_many(:courses).through :course_memberships }
   
-  # it "has a valid factory" do
-  # 	FactoryGirl.create(:user).should be_valid
-  # end
-# TODO; @david.courses should return a list of all of his courses
+  it "has a valid factory" do
+  	FactoryGirl.create(:user).should be_valid
+  end
+
   describe 'instance methods in User class' do
   	before :each do
 	  	@rahul = User.create

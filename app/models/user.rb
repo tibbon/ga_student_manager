@@ -52,11 +52,20 @@ class User < ActiveRecord::Base
 
 	has_many :contributions
 	has_many :assignments, through: :contributions
+
   has_many :one_on_ones
 
-  scope :students, -> { includes(:course_memberships).where('role = (?)', 'student').references(:course_memberships)}
-  scope :teachers, -> { includes(:course_memberships).where('role = (?)', 'teacher').references(:course_memberships)}
+
   
+  # # returns a list of all students ever, maybe not necessary. 
+  # # also namespace conflict with the more useful class method that 
+  # # takes an argument and returns the students for a specific course.
+  # scope :students, -> { includes(:course_memberships).where('role = (?)', 'student').references(:course_memberships)}
+  # scope :teachers, -> { includes(:course_memberships).where('role = (?)', 'teacher').references(:course_memberships)}
+  
+  # TODO; maybe we should have a separate github profile table for users so the users table has fewer columns <-- great advice from Tom
+
+
   def self.students(course)
     course.students
   end
