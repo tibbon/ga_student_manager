@@ -32,7 +32,7 @@ end
 
 
 #Bootstrap SASS install
-gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
+# gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass', branch: '3'
 
 #for connecting making rest calls to github
 gem 'rest-client'
