@@ -87,6 +87,11 @@ describe User do
 	    @amal_project_2 = Contribution.create(assignment: @project_2, user: @amal)
 	    @rahul_quiz_2 = Contribution.create(assignment: @quiz_2, user: @rahul)
 	    @rahul_project_1 = Contribution.create(assignment: @project_1, user: @rahul)
+	    @one_on_one_1 = OneOnOne.create(teacher: @teddy, student: @amal, course: @bos_fall)
+	    @one_on_one_2 = OneOnOne.create(teacher: @david, student: @teddy, course: @nyc_summer)
+	    @one_on_one_3 = OneOnOne.create(teacher: @david, student: @amal, course: @bos_fall)
+
+
 	  end
 
   
@@ -153,6 +158,16 @@ describe User do
 	  it "returns a list of all students and teachers in an array" do
 	  	User.teachers(@bos_fall).should =~ [@tom, @teddy, @david]
 	  	User.students(@bos_fall).should =~ [@cori, @amal, @rahul]
+	  end
+
+	  it "returns a list of one on ones from the teacher role" do
+	  	@david.one_on_ones("teacher").should =~ [@one_on_one_2, @one_on_one_3]
+	  	@teddy.one_on_ones("teacher").should == [@one_on_one_1]
+	  end
+
+	  it "returns a list of one_on_ones from the student role" do
+	  	@teddy.one_on_ones("student").should == [@one_on_one_2]
+	  	@amal.one_on_ones("student").should == [@one_on_one_1]
 	  end
   end
 
