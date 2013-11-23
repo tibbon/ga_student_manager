@@ -74,6 +74,15 @@ class User < ActiveRecord::Base
     course.teachers
   end
 
+  def one_on_ones(role)
+    case role
+    when "teacher"
+      OneOnOne.where(teacher_id: self.id)
+    when "student"
+      OneOnOne.where(student_id: self.id)
+    end
+  end
+
   def homeworks
     self.contributions.homework
   end
