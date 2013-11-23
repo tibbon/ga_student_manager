@@ -116,9 +116,6 @@ ActiveRecord::Schema.define(version: 20131123182403) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "biography"
-    t.integer  "absences",                default: 0
-    t.integer  "tardies",                 default: 0
-    t.integer  "excused_absences",        default: 0
     t.string   "encrypted_password",      default: "",    null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -130,6 +127,9 @@ ActiveRecord::Schema.define(version: 20131123182403) do
     t.string   "last_sign_in_ip"
     t.string   "provider"
     t.string   "uid"
+    t.integer  "absences",                default: 0
+    t.integer  "tardies",                 default: 0
+    t.integer  "excused_absences",        default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
