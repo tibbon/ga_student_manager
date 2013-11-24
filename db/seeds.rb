@@ -642,6 +642,16 @@ first_assignment = Assignment.create(
 	assignment_type: "homework"
 )
 
+second_assignment = Assignment.create(
+	course: boston_wdi,
+	title: "Whatever2",
+	description: "More words33",
+	github_login: "tibbon",
+	github_repo: "tibbon/ga-twitter-stock-sinatra-lab",
+	due_date: Date.today,
+	assignment_type: "homework"
+)
+
 OneOnOne.create(
 	student_id: abby.id,
 	teacher_id: david.id,

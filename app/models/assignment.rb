@@ -39,8 +39,8 @@ class Assignment < ActiveRecord::Base
 	end 
 
 	def create_contributions
-		self.students.each do |student|
-			Contribution.create( user: student , assignment: self )
+		self.course_students.each do |student|
+			Contribution.create( user_id: student.id , assignment_id: self.id )
 		end 
 	end 
 
