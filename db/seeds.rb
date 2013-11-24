@@ -474,7 +474,7 @@ first_assignment = Assignment.create(
 	title: "Whatever",
 	description: "More words",
 	github_login: "tibbon",
-	github_repo: "ga-homework-reddit-hn-rails-ajax",
+	github_repo: "tibbon/ga-string-analysis-homework",
 	due_date: Date.today,
 	assignment_type: "homework"
 )

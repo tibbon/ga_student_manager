@@ -44,6 +44,7 @@ class Assignment < ActiveRecord::Base
 		end 
 	end 
 
+
 	def check_for_pull_requests
 		pull_requests = HTTParty.get("https://api.github.com/repos/#{github_repo}/pulls")
 		pull_requests.each do |pr|
@@ -53,4 +54,6 @@ class Assignment < ActiveRecord::Base
 			contribution.update_from_pull_request(pr)
 		end
 	end
+
+
 end
