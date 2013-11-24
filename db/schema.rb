@@ -38,8 +38,8 @@ ActiveRecord::Schema.define(version: 20131124212323) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "github_id"
     t.string   "travis_url"
+    t.integer  "github_id"
   end
 
   add_index "contributions", ["assignment_id"], name: "index_contributions_on_assignment_id", using: :btree
@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 20131124212323) do
     t.string   "last_name"
     t.boolean  "is_admin",                default: false
     t.string   "telephone"
-    t.string   "email",                   default: "",    null: false
+    t.string   "email"
     t.text     "street_address"
     t.string   "city"
     t.string   "state"
