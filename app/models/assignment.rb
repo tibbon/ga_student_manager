@@ -56,16 +56,11 @@ class Assignment < ActiveRecord::Base
 	end 
 
 	def check_for_pull_requests
-		# github_url looks like: AmalHussein/ga-string-analysis-homework, and will be input by the teacher
 		pull_requests = HTTParty.get("https://api.github.com/repos/#{github_repo}/pulls")
 		pull_requests.each do |pr|
-			Contribution.create( assignment_id: self.id,
-				github_id: pr["id"], 
-				user_id: User.where(github_login: (pr["user"]["login"] || 1)).first,
-				url: pr["html_url"],
-				repo_fork: pr["head"]["repo"]["html_url"],
-				created_at: pr["created_at"],
-				updated_at: pr["updated_at"])
+			user = User.where(github_login: (pr["user"]["login"])).first
+			contribution = Contribution.where( assignment: self, user: user)
+			contribution.update_from_pull_request(pr)
 		end
 	end
 end

@@ -1,10 +1,10 @@
 class AssignmentsController < ApplicationController
 		
-  # before_action :set_assignment, only: [:show, :edit, :update, :destroy]
+  before_action :set_assignment, only: [:show, :edit, :update, :destroy]
 
 	def show 
 		@assignment = Assignment.find(params[:id])
-		@assignment.contributions
+		@assignment.check_for_pull_requests
 	end 
 
 	def new
@@ -26,14 +26,14 @@ class AssignmentsController < ApplicationController
 	def update
 	end 
 
-# private 
+private 
 
-#   def set_assignement
-#   	@assignment = Assignment.find(params[:id])
-#   end 
+  def set_assignement
+  	@assignment = Assignment.find(params[:id])
+  end 
 
-#   def assignment_params
-#     params.require(:assignment).permit(:github_login, :course_id,:title, :github_repo, :due_date, :assignment_type, :description, :title) 
-#   end 
+  def assignment_params
+    params.require(:assignment).permit(:github_login, :course_id,:title, :github_repo, :due_date, :assignment_type, :description, :title) 
+  end 
 
 end
