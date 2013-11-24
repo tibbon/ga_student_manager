@@ -1,0 +1,58 @@
+body {
+    font-family: 'Helvetica Neue';
+    color: #fff;
+}
+
+.container {
+    background-color: #444;
+    width: 100%;
+    height: 400px;
+    margin: 0px;
+    position: absolute;
+}
+
+h1 {
+    display: block;
+    margin: auto;
+    margin-top: 100px;
+    width:250px;
+    font-weight: 100; 
+}
+
+.btnn {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    padding: 20px;
+    color: white;
+    
+    background-color: #d8173d;
+    border-radius: 200px;
+    outline: none;
+    border: none;
+}
+
+.btnn:active {
+    background-color: #c01436;
+}
+
+#bottom-logo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+img {   
+    bottom: 0;
+    right: 0;
+   /* background: url('https://dl-web.dropbox.com/get/GA_WDI_DASH/GA_logo.png?w=AABdSt8jDqApRj0d0cXB4ltyARB29mIa_XK7MUr44doVEA');*/
+}
+
+#logo {
+    font-family: "brush script std";
+}
+/*splash specific*/
+
+
+
+
