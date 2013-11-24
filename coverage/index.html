@@ -5,7 +5,7 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <script src='./assets/0.8.0/application.js' type='text/javascript'></script>    
     <link href='./assets/0.8.0/application.css' media='screen, projection, print' rel='stylesheet' type='text/css'>
-    <link rel="shortcut icon" type="image/png" href="./assets/0.8.0/favicon_green.png" />
+    <link rel="shortcut icon" type="image/png" href="./assets/0.8.0/favicon_yellow.png" />
     <link rel="icon" type="image/png" href="./assets/0.8.0/favicon.png" />
   </head>
   
@@ -14,27 +14,27 @@
       <img src="./assets/0.8.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2013-11-23T13:55:11-05:00">2013-11-23T13:55:11-05:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2013-11-24T17:12:02-05:00">2013-11-24T17:12:02-05:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
         <div class="file_list_container" id="AllFiles">
   <h2>
     <span class="group_name">All Files</span>
-    (<span class="covered_percent"><span class="green">96.15%</span></span>
+    (<span class="covered_percent"><span class="yellow">89.02%</span></span>
      covered at
      <span class="covered_strength">
        <span class="green">
-         1.51
+         1.7
        </span>
     </span> hits/line)
   </h2>
   <a name="AllFiles"></a>
   <div>
     <b>7</b> files in total.
-    <b>52</b> relevant lines. 
-    <span class="green"><b>50</b> lines covered</span> and
-    <span class="red"><b>2</b> lines missed </span>
+    <b>82</b> relevant lines. 
+    <span class="green"><b>73</b> lines covered</span> and
+    <span class="red"><b>9</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -62,12 +62,12 @@
       
       <tr>
         <td class="strong"><a href="#e932edd5b3cd7413749dce3843f8a4a3e66765c3" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
-        <td class="red strong">75.0 %</td>
-        <td>35</td>
-        <td>4</td>
-        <td>3</td>
-        <td>1</td>
-        <td>0.8</td>
+        <td class="red strong">76.47 %</td>
+        <td>117</td>
+        <td>34</td>
+        <td>26</td>
+        <td>8</td>
+        <td>1.9</td>
       </tr>
       
       <tr>
@@ -129,20 +129,20 @@
           <div class="file_list_container" id="Controllers">
   <h2>
     <span class="group_name">Controllers</span>
-    (<span class="covered_percent"><span class="red">77.78%</span></span>
+    (<span class="covered_percent"><span class="red">76.92%</span></span>
      covered at
      <span class="covered_strength">
-       <span class="red">
-         0.8
+       <span class="green">
+         1.76
        </span>
     </span> hits/line)
   </h2>
   <a name="Controllers"></a>
   <div>
     <b>2</b> files in total.
-    <b>9</b> relevant lines. 
-    <span class="green"><b>7</b> lines covered</span> and
-    <span class="red"><b>2</b> lines missed </span>
+    <b>39</b> relevant lines. 
+    <span class="green"><b>30</b> lines covered</span> and
+    <span class="red"><b>9</b> lines missed </span>
   </div>
   <table class="file_list">
     <thead>
@@ -170,12 +170,12 @@
       
       <tr>
         <td class="strong"><a href="#e932edd5b3cd7413749dce3843f8a4a3e66765c3" class="src_link" title="app/controllers/users_controller.rb">app/controllers/users_controller.rb</a></td>
-        <td class="red strong">75.0 %</td>
-        <td>35</td>
-        <td>4</td>
-        <td>3</td>
-        <td>1</td>
-        <td>0.8</td>
+        <td class="red strong">76.47 %</td>
+        <td>117</td>
+        <td>34</td>
+        <td>26</td>
+        <td>8</td>
+        <td>1.9</td>
       </tr>
       
     </tbody>
@@ -478,11 +478,11 @@
         <div class="source_table" id="e932edd5b3cd7413749dce3843f8a4a3e66765c3">
   <div class="header">
     <h3>app/controllers/users_controller.rb</h3>
-    <h4><span class="red">75.0 %</span> covered</h4>
+    <h4><span class="red">76.47 %</span> covered</h4>
     <div>
-      <b>4</b> relevant lines. 
-      <span class="green"><b>3</b> lines covered</span> and
-      <span class="red"><b>1</b> lines missed.</span>
+      <b>34</b> relevant lines. 
+      <span class="green"><b>26</b> lines covered</span> and
+      <span class="red"><b>8</b> lines missed.</span>
     </div>
   </div>
   
@@ -498,202 +498,694 @@
         <li class="never" data-hits="" data-linenumber="2">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">	# before_filter :authenticate_user!</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="3">
           <span class="hits">1</span>
           
-          <code class="ruby">	def index </code>
+          <code class="ruby">  before_action :set_user, only: [:show, :edit, :update, :destroy]</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="4">
+        <li class="covered" data-hits="1" data-linenumber="4">
+          <span class="hits">1</span>
           
-          
-          <code class="ruby">		# # returns all the courses ever taught by the current user</code>
+          <code class="ruby">	def index </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="5">
           
           
-          <code class="ruby">		# @courses = current_user.courses_teaching</code>
+          <code class="ruby">		# # returns all the courses ever taught by the current user</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="6">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">		# @courses = current_user.courses_teaching</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="7">
           
           
-          <code class="ruby">		# @course = Course(params[:course_id])</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="8">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">		# @course = Course(params[:course_id])</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="9">
           
           
-          <code class="ruby">		# # instance methods you can call on course:</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="10">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">		# # instance methods you can call on course:</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="11">
           
           
-          <code class="ruby">		# @projects = @course.projects</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="12">
           
           
-          <code class="ruby">		# @quizzes = @course.quizzes</code>
+          <code class="ruby">		# @projects = @course.projects</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
           
           
-          <code class="ruby">		# @homeworks = @course.homeworks</code>
+          <code class="ruby">		# @quizzes = @course.quizzes</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="14">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">		# @homeworks = @course.homeworks</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="15">
           
           
-          <code class="ruby">  #   # one_on_ones are tricky because they belong to two users.  for now:</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="16">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  #   # one_on_ones are tricky because they belong to two users.  for now:</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="17">
           
           
-          <code class="ruby">		# @one_on_ones = OneOnOne.where(student_id: params[:id])</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="18">
           
           
-          <code class="ruby">		# @one_on_ones = OneOnOne.where(teacher_id: params[:id])</code>
+          <code class="ruby">		# @one_on_ones = OneOnOne.where(student_id: params[:id])</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="19">
           
           
-          <code class="ruby">    </code>
+          <code class="ruby">		# @one_on_ones = OneOnOne.where(teacher_id: params[:id])</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="20">
           
           
-          <code class="ruby">  #   # you can get an array of students with an instance method on a course:</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="21">
           
           
-          <code class="ruby">		# @students = @course.students</code>
+          <code class="ruby">	#   # now with instance methods!</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="22">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">	  # @student.one_on_ones_as_student</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="23">
           
           
-          <code class="ruby">		# # and you can get an array of contributions from each student by calling instance methods on the user:</code>
+          <code class="ruby">	  # @teacher.one_on_ones_as_teacher</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="24">
           
           
-          <code class="ruby">		# @students.each do |student|</code>
+          <code class="ruby">	  # @course.one_on_ones</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="25">
           
           
-          <code class="ruby">		#   student.quizzes</code>
+          <code class="ruby">    </code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="26">
           
           
-          <code class="ruby">		#   student.homeworks</code>
+          <code class="ruby">  #   # you can get an array of students with an instance method on a course:</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="27">
           
           
-          <code class="ruby">		#   student.projects</code>
+          <code class="ruby">		# @students = @course.students</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="28">
           
           
-          <code class="ruby">		# end</code>
+          <code class="ruby"></code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="29">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">		# # and you can get an array of contributions from each student by calling instance methods on the user:</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="30">
           
           
-          <code class="ruby">	end </code>
+          <code class="ruby">		# @students.each do |student|</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="31">
           
           
-          <code class="ruby">	</code>
+          <code class="ruby">		#   student.quizzes</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="32">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="32">
           
-          <code class="ruby">	def show</code>
+          
+          <code class="ruby">		#   student.homeworks</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="33">
+        <li class="never" data-hits="" data-linenumber="33">
           
           
-          <code class="ruby">		@user = User.find(params[:id])</code>
+          <code class="ruby">		#   student.projects</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="34">
           
           
-          <code class="ruby">	end </code>
+          <code class="ruby">		# end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="35">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="36">
+          
+          
+          <code class="ruby">	end </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="37">
+          
+          
+          <code class="ruby">	</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="38">
+          <span class="hits">1</span>
+          
+          <code class="ruby">	def show</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="39">
+          
+          
+          <code class="ruby">	end </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="40">
+          
+          
+          <code class="ruby">  </code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="41">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def new</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="42">
+          
+          
+          <code class="ruby">  	# mailer to send email invite for a student to log in?</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="43">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  	@user = User.new</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="44">
+          
+          
+          <code class="ruby">	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="45">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="46">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def callback</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="47">
+          
+          
+          <code class="ruby">    result = RestClient.post(&quot;https://github.com/login/oauth/access_token&quot;, {client_id: ENV[&#39;CLIENT_ID&#39;], client_secret: ENV[&#39;CLIENT_SECRET&#39;], code: params[:code]}, { accept =&gt; :json });</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="48">
+          
+          
+          <code class="ruby">    @@access_token = JSON.parse(result)[&#39;access_token&#39;]</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="49">
+          
+          
+          <code class="ruby">    redirect_to &#39;/users/create&#39;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="50">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="51">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="52">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def create</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="53">
+          
+          
+          <code class="ruby">    github_user = JSON.parse(RestClient.get(&quot;https://api.github.com/user&quot;, {params: {:access_token =&gt; @@access_token}}))</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="54">
+          
+          
+          <code class="ruby">    user = User.where(github_login: github_user[&#39;login&#39;]).first</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="55">
+          
+          
+          <code class="ruby">    unless user</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="56">
+          
+          
+          <code class="ruby">      user = User.create!(</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="57">
+          
+          
+          <code class="ruby">        github_login: github_user[&#39;login&#39;],</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="58">
+          
+          
+          <code class="ruby">        github_id: github_user[&#39;id&#39;],</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="59">
+          
+          
+          <code class="ruby">        github_url: github_user[&#39;url&#39;] , </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="60">
+          
+          
+          <code class="ruby">        avatar_url: github_user[&#39;avatar_url&#39;],</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="61">
+          
+          
+          <code class="ruby">        gravatar_id: github_user[&#39;gravatar_id&#39;] , </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="62">
+          
+          
+          <code class="ruby">        html_url: github_user[&#39;html_url&#39;], </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="63">
+          
+          
+          <code class="ruby">        followers_url: github_user[&#39;followers_url&#39;] ,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="64">
+          
+          
+          <code class="ruby">        following_url: github_user[&#39;following_url&#39;] , </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="65">
+          
+          
+          <code class="ruby">        gists_url: github_user[&#39;gists_url&#39;] , </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="66">
+          
+          
+          <code class="ruby">        starred_url: github_user[&#39;starred_url&#39;] , </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="67">
+          
+          
+          <code class="ruby">        subscriptions_url: github_user[&#39;subscriptions_url&#39;] , </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="68">
+          
+          
+          <code class="ruby">        organizations_url: github_user[&#39;organizations_url&#39;] , </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="69">
+          
+          
+          <code class="ruby">        repos_url: github_user[&#39;repos_url&#39;] , </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="70">
+          
+          
+          <code class="ruby">        events_url: github_user[&#39;events_url&#39;] , </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="71">
+          
+          
+          <code class="ruby">        received_events_url: github_user[&#39;received_events_url&#39;] , </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="72">
+          
+          
+          <code class="ruby">        type: github_user[&#39;type&#39;], </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="73">
+          
+          
+          <code class="ruby">        site_admin: github_user[&#39;site_admin&#39;] ,</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="74">
+          
+          
+          <code class="ruby">        public_repos: github_user[&#39;public_repos&#39;],</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="75">
+          
+          
+          <code class="ruby">        followers: github_user[&#39;followers&#39;] , </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="76">
+          
+          
+          <code class="ruby">        following: github_user[&#39;following&#39;], </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="77">
+          
+          
+          <code class="ruby">        created_github_profile: github_user[&#39;created_at&#39;] , </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="78">
+          
+          
+          <code class="ruby">        last_updated_github_at: github_user[&#39;updated_at&#39;] , </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="79">
+          
+          
+          <code class="ruby">        public_gists: github_user[&#39;public_gists&#39;]) </code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="80">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="missed" data-hits="0" data-linenumber="81">
+          
+          
+          <code class="ruby">    redirect_to &quot;/sessions/#{user.id}/create&quot;</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="82">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="83">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="84">
+          <span class="hits">1</span>
+          
+          <code class="ruby">  def edit</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="85">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="86">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="87">
+          <span class="hits">1</span>
+          
+          <code class="ruby">	def update</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="88">
+          <span class="hits">5</span>
+          
+          <code class="ruby">    respond_to do |format|</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="89">
+          <span class="hits">5</span>
+          
+          <code class="ruby">      if @user.update(user_params)</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="90">
+          <span class="hits">4</span>
+          
+          <code class="ruby">        format.html { redirect_to @user, notice: &#39;User was successfully updated.&#39; }</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="91">
+          <span class="hits">2</span>
+          
+          <code class="ruby">        format.json { head :no_content }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="92">
+          
+          
+          <code class="ruby">      else</code>
+        </li>
+      
+        <li class="covered" data-hits="6" data-linenumber="93">
+          <span class="hits">6</span>
+          
+          <code class="ruby">        format.html { render action: &#39;edit&#39; }</code>
+        </li>
+      
+        <li class="covered" data-hits="3" data-linenumber="94">
+          <span class="hits">3</span>
+          
+          <code class="ruby">        format.json { render json: @user.errors, status: :unprocessable_entity }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="95">
+          
+          
+          <code class="ruby">      end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="96">
+          
+          
+          <code class="ruby">    end	</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="97">
+          
+          
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="98">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="99">
+          <span class="hits">1</span>
+          
+          <code class="ruby">	def destroy</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="100">
+          <span class="hits">2</span>
+          
+          <code class="ruby">		@user.destroy</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="101">
+          <span class="hits">2</span>
+          
+          <code class="ruby">    respond_to do |format|</code>
+        </li>
+      
+        <li class="covered" data-hits="4" data-linenumber="102">
+          <span class="hits">4</span>
+          
+          <code class="ruby">      format.html { redirect_to users_url }</code>
+        </li>
+      
+        <li class="covered" data-hits="2" data-linenumber="103">
+          <span class="hits">2</span>
+          
+          <code class="ruby">      format.json { head :no_content }</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="104">
+          
+          
+          <code class="ruby">    end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="105">
+          
+          
+          <code class="ruby">	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="106">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="107">
+          <span class="hits">1</span>
+          
+          <code class="ruby">	private</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="108">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="109">
+          <span class="hits">1</span>
+          
+          <code class="ruby">	def set_user</code>
+        </li>
+      
+        <li class="covered" data-hits="9" data-linenumber="110">
+          <span class="hits">9</span>
+          
+          <code class="ruby">		@user = User.find(params[:id])</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="111">
+          
+          
+          <code class="ruby">	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="112">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="113">
+          <span class="hits">1</span>
+          
+          <code class="ruby">	def user_params</code>
+        </li>
+      
+        <li class="covered" data-hits="5" data-linenumber="114">
+          <span class="hits">5</span>
+          
+          <code class="ruby">		params.require(:user).permit(:first_name, :last_name, :email, :telephone, :email, :street_address, :city, :state, :zip_code, :emergency_contact, :emergency_contact_phone)</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="115">
+          
+          
+          <code class="ruby">	end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="116">
+          
+          
+          <code class="ruby"></code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="117">
           
           
           <code class="ruby">end</code>

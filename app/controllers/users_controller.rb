@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_filter :authenticate_user!
+	# before_filter :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 	def index 
 		# # returns all the courses ever taught by the current user
