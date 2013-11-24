@@ -28,8 +28,8 @@ class Contribution < ActiveRecord::Base
 		contribution.github_id = pr["id"]
 		contribution.url = pr["html_url"]
 		contribution.repo_fork = pr["head"]["repo"]["html_url"]
-		contribution.created_at = pr["created_at"]
-		contribution.updated_at = pr["updated_at"]
+		# contribution.created_at = pr["created_at"]
+		# contribution.updated_at = pr["updated_at"]
 		contribution.save
 	end
 
