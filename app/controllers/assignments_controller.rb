@@ -3,7 +3,6 @@ class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
 
 	def show 
-		@assignment = Assignment.find(params[:id])
 		@assignment.check_for_pull_requests
 	end 
 
@@ -28,7 +27,7 @@ class AssignmentsController < ApplicationController
 
 private 
 
-  def set_assignement
+  def set_assignment
   	@assignment = Assignment.find(params[:id])
   end 
 

@@ -20,17 +20,18 @@ class Contribution < ActiveRecord::Base
 	scope :homework, -> { includes(:assignment).where('assignment_type = (?)', 'homework').references(:assignment).order('due_date DESC')}
 	scope :quiz, -> { includes(:assignment).where('assignment_type = (?)', 'quiz').references(:assignment).order('due_date DESC')}
 	scope :project, -> { includes(:assignment).where('assignment_type = (?)', 'project').references(:assignment).order('due_date DESC')}
-  delegate :assignment_type, :due_date, to: :assignment, prefix: true
+	delegate :assignment_type, :due_date, to: :assignment, prefix: true
 
 
 
-  def update_from_pull_request(pr)
-  	contribution.github_id = pr["id"]
-			contribution.url = pr["html_url"]
-				contribution.repo_fork = pr["head"]["repo"]["html_url"]
-				contribution.created_at = pr["created_at"]
-				contribution.updated_at = pr["updated_at"]
-  end
+	def update_from_pull_request(pr)
+		contribution.github_id = pr["id"]
+		contribution.url = pr["html_url"]
+		contribution.repo_fork = pr["head"]["repo"]["html_url"]
+		contribution.created_at = pr["created_at"]
+		contribution.updated_at = pr["updated_at"]
+		contribution.save
+	end
 
 
 end

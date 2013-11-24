@@ -4,7 +4,8 @@ abby = User.create(
 	last_name: "Miller", 
 	is_admin: false, 
 	telephone: nil, 
-	email: nil, 
+	email: "abby@example.com",
+	password: "secretness" ,
 	street_address: nil, 
 	city: nil, 
 	state: nil, 
@@ -42,7 +43,8 @@ amal = User.create(
 	last_name: "Hussein", 
 	is_admin: false, 
 	telephone: nil, 
-	email: nil, 
+	email: "amal@example.com",
+	password: "secretness" ,
 	street_address: nil, 
 	city: nil, 
 	state: nil, 
@@ -80,7 +82,8 @@ matt = User.create(
 	last_name: "Clement", 
 	is_admin: false, 
 	telephone: nil, 
-	email: nil, 
+	email: "matt@example.com",
+	password: "secretness" ,
 	street_address: nil, 
 	city: nil, 
 	state: nil, 
@@ -117,7 +120,8 @@ teddy = User.create(
 	last_name: "Cleveland", 
 	is_admin: false, 
 	telephone: nil, 
-	email: nil, 
+	email: "teddy@example.com",
+	password: "secretness" ,
 	street_address: nil, 
 	city: nil, 
 	state: nil, 
@@ -154,7 +158,8 @@ david = User.create(
 	last_name: "Fisher", 
 	is_admin: false, 
 	telephone: nil, 
-	email: nil, 
+	email: "david@example.com",
+	password: "secretness" ,
 	street_address: nil, 
 	city: nil, 
 	state: nil, 
@@ -199,7 +204,7 @@ CourseMembership.create(user: david, course: boston_wdi, role: 'teacher')
 CourseMembership.create(user: teddy, course: boston_wdi, role: 'teacher')
 
 first_assignment = Assignment.create(
-	course_id: Course.first.id,
+	course: boston_wdi,
 	title: "Whatever",
 	description: "More words",
 	github_login: "tibbon",
@@ -208,19 +213,10 @@ first_assignment = Assignment.create(
 	assignment_type: "homework"
 )
 
-Contribution.create(
-	finished: true,
-	repo_fork: "",
-	travis_data: "",
-	assignment_id: first_assignment.id,
-	user_id: abby.id,
-	url: "https://github.com/abigezunt/ga-homework-reddit-hn-rails-ajax/",
-	status: "done"
-)
-
 OneOnOne.create(
 	student_id: abby.id,
 	teacher_id: david.id,
+	course: boston_wdi,
 	date: Date.today,
 	notes: "words words words this student is kinda awesome"
 )
