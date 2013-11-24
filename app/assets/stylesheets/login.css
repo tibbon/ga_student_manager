@@ -1,0 +1,63 @@
+#body-container {
+    font-family: 'Helvetica Neue';
+    color: #fff;
+     background-color: #444;
+}
+
+.container {
+   
+    width: 100%;
+    margin: 0px;
+    position: absolute;
+    display: table;
+    min-height: 100%;
+}
+
+.sub-container {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#h1-container {
+    display: block;
+    margin: auto;
+    font-weight: 100;
+    text-align: center;
+  
+    
+}
+
+.btnn {
+    display: block;
+    margin: auto;
+    margin-top:10px;
+    padding: 20px;
+    color: white;
+    
+    background-color: #d8173d;
+    border-radius: 200px;
+    outline: none;
+    border: none;
+}
+
+.btnn:active {
+    background-color: #c01436;
+}
+
+
+#bottom-logo {
+    position:absolute;
+    bottom:0;
+    right: 0;
+    line-height: 42px;
+}
+
+#img-container {
+    
+    bottom:0;
+    right: 0;
+}
+#logo {
+    font-family: "Futura";
+   
+}

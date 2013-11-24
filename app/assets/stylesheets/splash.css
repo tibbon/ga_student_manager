@@ -1,0 +1,84 @@
+body {
+    font-family: 'Helvetica Neue';
+    color: #fff;
+    background-color: #444;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+/* .container {
+    background-color: #444;
+    width: 100%;
+    height: 400px;
+    margin: 0px;
+    position: absolute;
+}
+ */
+#splash-container {
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -100px;
+    margin-top: -75px;
+    background-color: rgba(255,255,255,.5);
+    padding: 20px;
+    border-radius: 7px;
+}
+h1 {
+    text-align: center;
+    font-weight: 100; 
+}
+
+.btnn {
+    display: block;
+    margin: auto;
+    margin-top: 10px;
+    padding: 20px;
+    color: white;
+    
+    background-color: #d8173d;
+    border-radius: 200px;
+    outline: none;
+    border: none;
+}
+
+.btnn:active {
+    background-color: #c01436;
+}
+
+#bottom-logo {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+img {   
+    bottom: 0;
+    right: 0;
+   /* background: url('https://dl-web.dropbox.com/get/GA_WDI_DASH/GA_logo.png?w=AABdSt8jDqApRj0d0cXB4ltyARB29mIa_XK7MUr44doVEA');*/
+}
+
+#logo {
+    font-family: "brush script std";
+}
+/*splash specific*/
+
+#thank-you {
+    font-size:20px;
+    display: block;
+    margin:auto;
+    float:right;
+}
+
+.splash-btnn {
+    margin-top: 30px;
+    padding:5px;
+}
+
+#move {
+    display: block;
+    margin: auto;
+}
