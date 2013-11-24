@@ -49,10 +49,12 @@ class Assignment < ActiveRecord::Base
 		pull_requests = HTTParty.get("https://api.github.com/repos/#{github_repo}/pulls")
 		pull_requests.each do |pr|
 			user = User.where(github_login: pr["user"]["login"]).first
-			contribution = Contribution.where( assignment_id: self.id, user_id: user.id) || contribution = Contribution.new(user: user, assignment: self)
+			contribution = Contribution.find_or_create_by(assignment_id: self.id, user_id: user.id) 
 			contribution.update_from_pull_request(pr)
 		end
 	end
+
+
 
 
 end
