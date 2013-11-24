@@ -1,0 +1,10 @@
+	<% @assignment.contributions.each do | contribution | %> 
+			repo_fork  <%= contribution.repo_fork %> </br>
+			user_id  <%=	contribution.user_id %> </br>
+			url  <%=	contribution.url %> </br>
+	    github_id  <%=	contribution.github_id %> </br> 
+	    created_at  <%= contribution.created_at %> </br>
+	    updated_at  <%= contribution.updated_at %> </br>
+	    </br>
+			<% end %> 
+
