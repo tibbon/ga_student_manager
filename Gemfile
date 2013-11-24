@@ -9,8 +9,13 @@ gem 'dotenv-rails'
 gem 'devise'
 gem 'omniauth-github'
 
+# Adding gem for sass rails
+gem 'sass-rails'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+
+gem 'twitter-bootstrap-rails'
 
 group :development, :test do 
 	gem 'pry-rails'
