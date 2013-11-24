@@ -4,7 +4,8 @@ abby = User.create(
 	last_name: "Miller", 
 	is_admin: false, 
 	telephone: nil, 
-	email: nil, 
+	email: "abby@example.com",
+	password: "password",
 	street_address: nil, 
 	city: nil, 
 	state: nil, 
@@ -42,7 +43,8 @@ amal = User.create(
 	last_name: "Hussein", 
 	is_admin: false, 
 	telephone: nil, 
-	email: nil, 
+	email: "amal@example.com",
+	password: "password",
 	street_address: nil, 
 	city: nil, 
 	state: nil, 
@@ -80,7 +82,8 @@ matt = User.create(
 	last_name: "Clement", 
 	is_admin: false, 
 	telephone: nil, 
-	email: nil, 
+	email: "matt@example.com",
+	password: "password",
 	street_address: nil, 
 	city: nil, 
 	state: nil, 
@@ -117,7 +120,8 @@ teddy = User.create(
 	last_name: "Cleveland", 
 	is_admin: false, 
 	telephone: nil, 
-	email: nil, 
+	email: "teddy@example.com",
+	password: "password",
 	street_address: nil, 
 	city: nil, 
 	state: nil, 
@@ -154,7 +158,8 @@ david = User.create(
 	last_name: "Fisher", 
 	is_admin: false, 
 	telephone: nil, 
-	email: nil, 
+	email: "david@example.com",
+	password: "password",
 	street_address: nil, 
 	city: nil, 
 	state: nil, 
@@ -186,6 +191,44 @@ david = User.create(
 	last_updated_github_at: "2013-11-21 21:07:38", 
 	biography: "Words words words")
 
+tom = User.create(
+	first_name: "Tom", 
+	last_name: "Dyer", 
+	is_admin: false, 
+	telephone: nil, 
+	email: "tom@example.com",
+	password: "password",
+	street_address: nil, 
+	city: nil, 
+	state: nil, 
+	zip_code: nil, 
+	emergency_contact: nil, 
+	emergency_contact_phone: nil, 
+	github_url: "https://api.github.com/users/tdyer", 
+	html_url: "https://github.com/tdyer", 
+	repos_url: "https://api.github.com/users/tdyer/repos", 
+	gists_url: "https://api.github.com/users/tdyer/gists{/gist_id}", 
+	avatar_url: "https://0.gravatar.com/avatar/afb9c4e3401a6e54d045299f25cfbecf?d=https%3A%2F%2Fidenticons.github.com%2F5c284cd1782086a873770ab06d629e36.png&r=x", 
+	public_repos: 88, 
+	followers: 14, 
+	following: 17, 
+	github_id: 5377229, 
+	github_login: "tdyer", 
+	gravatar_id: 0, 
+	followers_url: "https://api.github.com/users/tdyer/followers", 
+	following_url: "https://api.github.com/users/tdyer/following{/other_user}", 
+	starred_url: "https://api.github.com/users/tdyer/starred{/owner}{/repo}", 
+	subscriptions_url: "https://api.github.com/users/tdyer/subscriptions", 
+	organizations_url: "https://api.github.com/users/tdyer/orgs", 
+	events_url: "https://api.github.com/users/tdyer/events{/privacy}", 
+	received_events_url: "https://api.github.com/users/tdyer/received_events", 
+	type: "User", 
+	site_admin: "f", 
+	public_gists: "0", 
+	created_github_profile: "2013-09-03 23:06:57", 
+	last_updated_github_at: "2013-11-21 21:07:38", 
+	biography: "Words words words")
+
 
 boston_wdi = Course.create(name: "WDI", location: "Boston", session: 'Fall 2013', start_date: Date.today - 1.months, end_date: Date.today + 2.months)
 CourseMembership.create(user: abby, course: boston_wdi, role: 'student')
@@ -194,9 +237,11 @@ CourseMembership.create(user: matt, course: boston_wdi, role: 'student')
 
 nyc_wdi_summer = Course.create(name: "OLD_WDI", location: "NYC", session: 'Summer 2013', start_date: Date.today - 6.months, end_date: Date.today - 3.months)
 CourseMembership.create(user: teddy, course: nyc_wdi_summer, role: 'student')
+CourseMembership.create(user: david, course: nyc_wdi_summer, role: 'teacher')
 
 CourseMembership.create(user: david, course: boston_wdi, role: 'teacher')
 CourseMembership.create(user: teddy, course: boston_wdi, role: 'teacher')
+CourseMembership.create(user: tom, course: boston_wdi, role: 'teacher')
 
 first_assignment = Assignment.create(
 	course_id: Course.first.id,

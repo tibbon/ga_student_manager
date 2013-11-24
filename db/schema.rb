@@ -84,7 +84,7 @@ ActiveRecord::Schema.define(version: 20131124212318) do
     t.string   "last_name"
     t.boolean  "is_admin",                default: false
     t.string   "telephone"
-    t.string   "email"
+    t.string   "email",                   default: "",    null: false
     t.text     "street_address"
     t.string   "city"
     t.string   "state"
