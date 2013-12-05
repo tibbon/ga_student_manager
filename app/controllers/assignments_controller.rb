@@ -1,7 +1,9 @@
 class AssignmentsController < ApplicationController
 		
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
-
+  def index
+  	render json: Assignment.all
+  end
 	def show 
 		@assignment.check_for_pull_requests
 	end 

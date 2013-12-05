@@ -21,16 +21,20 @@ class Assignment < ActiveRecord::Base
 	validates_inclusion_of :assignment_type, :in => %w[quiz homework project]
 	delegate :students, :to => :course , :prefix => true
 	after_create :create_contributions
+	scope :completed_homework, -> {where("assignment_type = 'homework' AND (contributions.url IS NOT NULL)")}
+	scope :incomplete_homework, -> {where("assignment_type = 'homework' AND (contributions.url IS NULL)")}
+	scope :homework, -> {where("assignment_type = 'homework'")}
+	scope :quiz, -> {where("assignment_type = 'quiz'")}
 
-	def quiz
+	def is_quiz?
 		self.assignment_type == "quiz"
 	end
 
-	def homework
+	def is_homework?
 		self.assignment_type == "homework"
 	end
 
-	def project
+	def is_project?
 		self.assignment_type == "project"
 	end
 
@@ -52,5 +56,4 @@ class Assignment < ActiveRecord::Base
 			contribution.update_from_pull_request(pr)
 		end
 	end
-
 end

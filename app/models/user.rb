@@ -198,4 +198,32 @@ class User < ActiveRecord::Base
     CourseMembership.where(user_id: self.id, role: "teacher").map(&:course) 
   end
 
+  def completed_homework
+    complete_count = assignments.completed_homework.count
+    assigned_count = assignments.homework.count
+    {number_completed: complete_count, number_assigned: assigned_count, percentage: (complete_count.to_f / assigned_count * 100)}
+  end
+
+  def hw_percent
+    complete_count = assignments.completed_homework.count
+    assigned_count = assignments.homework.count
+    complete_count.to_f / assigned_count * 100
+  end
+
+  def quiz_percent
+    rand(0..100)
+  end
+
+  def days_present
+    rand(1..60)
+  end
+
+  def days_late
+    rand(1..4)
+  end
+
+  def days_absent
+    rand(1..4)
+  end
+
 end

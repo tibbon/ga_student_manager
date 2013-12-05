@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 		#   student.homeworks
 		#   student.projects
 		# end
-
+    @users = User.all
 	end 
 	
 	def show

@@ -1,34 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" ng-app="studentManagerApp">
 <head>
+  <meta charset="utf-8">
   <title>StudentManagerApp</title>
-  <%= stylesheet_link_tag    "application", media: "all" %>
+	<%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "//ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular.min.js" %>
+  <%= javascript_include_tag "//ajax.googleapis.com/ajax/libs/angularjs/1.2.3/angular-route.js" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= link_to "Home", root_path %>
-
-<% if current_user %>
-    <div class = 'nav_button'>
-      <%= link_to 'Profile', edit_user_registration_path(user: current_user.id) %>
-    </div>
-    <div class = 'nav_button'>
-      <%= link_to 'Logout', destroy_user_session_path(user: current_user.id) %>
-    </div>
-<% else %>
-    <div class = 'nav_button'>  <!-- need to refine the link below to hide the CLIENT_ID -->
-	    <%= link_to 'Sign in with Github', user_omniauth_authorize_path(:github) %>
-  	</div>
-<% end %>
-
- <p class="notice"><%= notice %></p>
- <p class="alert"><%= alert %></p>
-
 <%= yield %>
-
 </body>
 </html>
-
-<%= render 'layouts/header' %>

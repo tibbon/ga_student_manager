@@ -18,7 +18,6 @@ gem 'rails_12factor'
 gem 'github_api'
 gem 'httparty'
 gem 'jbuilder', '~> 1.2'
-gem 'angularjs-rails'
 
 group :development, :test do 
 	gem 'pry-rails'

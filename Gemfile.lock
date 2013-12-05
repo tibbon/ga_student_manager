@@ -26,7 +26,6 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     addressable (2.3.5)
-    angularjs-rails (1.2.3)
     annotate (2.5.0)
       rake
     arel (4.0.1)
@@ -321,7 +320,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  angularjs-rails
   annotate (>= 2.5.0)
   better_errors
   binding_of_caller
