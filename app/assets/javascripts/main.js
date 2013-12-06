@@ -14,9 +14,9 @@ studentManagerApp.config(['$routeProvider',
         templateUrl: 'assets/student-list.html',
         controller: 'StudentListCtrl'
       }).
-      when('/phones/:phoneId', {
-        templateUrl: 'views/phone-detail.html',
-        controller: 'PhoneDetailCtrl'
+      when('/students/:studentId', {
+        templateUrl: 'assets/student-detail.html',
+        controller: 'StudentDetailCtrl'
       }).
       otherwise({
         redirectTo: '/students'

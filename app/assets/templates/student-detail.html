@@ -1,0 +1,72 @@
+ <div id='header'>
+</div>
+
+   <div id='cards-container'>
+    <div class='card-container'>
+
+     <div class='info-block'>
+      <div class='card-header'>Contact Info</div>
+      <div class='container-table'>
+
+        <div class='contacts'>
+          <div id='user-name'>Name: {{student.name}} </div>
+          <div id='user-email'>Email: {{student.email}} </div>
+          <div id='user-phone'>Phone Number: {{student.phone}} </div>
+        </div>
+
+        <div class='emergency contacts'>
+          <div>Emergency Contact</div>
+          <div id='emergency-name'>Contact Name: {{student.emergency_name}} </div>
+          <div id='emergency-phone'>Contact Phone: {{student.emergency_phone}}</div>
+        </div>
+
+        <div class='bio'>
+          <div id='user-bio'>Bio: {{student.bio}} </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+  <div class='card-container'>
+
+   <div class='info-block'>
+    <div class='card-header'>Quizzes</div>
+    <div class='container-table'>
+
+      <div class='quizzes'>
+        <% @user.quizzes.each do |quiz| %>
+        <div id='quiz-title'> <%= quiz.title %> </div>
+        <div id='quiz-score'> <%= quiz.score %> </div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class='card-container'>
+  <div class='info-block'>
+    <div class='card-header'>Attendance</div>
+    <div id='attendance-overall'>{{student.present}}</div>
+    <div id='attendance-late'>{{student.late}}</div>
+    <div id='attendance-absent'>{{student.absent}}</div>
+  </div>
+</div>
+
+<div class='card-container'>
+
+ <div class='info-block'>
+  <div class='card-header'>One-On-Ones</div>
+  <div ng-repeat="one_on_one in student.one_on_ones" class='container-table'>
+    <div class='one-on-ones'>
+      <div id='one-on-one-date'>{{one_on_one.course}} - {{one_on_one.date}} - {{one_on_one.teacher}}</div>
+      <div id='one-on-one-comments'>Notes: {{one_on_one.notes}}</div>
+      <div id='one-on-one-comments'>Student Concerns: {{one_on_one.student_concerns}}</div>
+      <div id='one-on-one-comments'>Teacher Concerns: {{one_on_one.teacher_concerns}}</div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+</div>

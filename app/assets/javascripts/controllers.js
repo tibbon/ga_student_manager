@@ -13,9 +13,9 @@ studentControllers.controller('StudentListCtrl', ['$scope', '$http',
     $scope.orderProp = '-name';
   }]);
 
-studentControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', '$http',
+studentControllers.controller('StudentDetailCtrl', ['$scope', '$routeParams', '$http',
   function($scope, $routeParams, $http) {
-    $http.get('phones/' + $routeParams.phoneId + '.json').success(function(data) {
-      $scope.phone = data;
+    $http.get('users/' + $routeParams.studentId + '.json').success(function(data) {
+      $scope.student = data;
     });
   }]);

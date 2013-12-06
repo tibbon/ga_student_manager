@@ -19,6 +19,10 @@ class Course < ActiveRecord::Base
   has_many :one_on_ones
 	scope :current, -> { where('end_date > ?', Date.today).where('start_date < ?', Date.today)}
 
+  def name_location
+    name + ": " + location
+  end
+
   def students
   	CourseMembership.where(course_id: self.id).where(role: 'student').map(&:user).sort_by &:last_name
   end

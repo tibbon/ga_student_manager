@@ -677,6 +677,11 @@ CourseMembership.create(user: david, course: boston_wdi, role: 'teacher')
 CourseMembership.create(user: teddy, course: boston_wdi, role: 'teacher')
 CourseMembership.create(user: tom, course: boston_wdi, role: 'teacher')
 
+OneOnOne.create(student_id: cori.id, teacher_id: david.id, date: DateTime.now, notes: "Everything is good", student_concerns: "Class is too awesome", teacher_concerns: "None", course_id: boston_wdi.id )
+OneOnOne.create(student_id: cori.id, teacher_id: david.id, date: DateTime.now - 1.day, notes: "Everything is excellent", student_concerns: "Class is very awesome", teacher_concerns: "None", course_id: boston_wdi.id )
+
+
+
 first_assignment = Assignment.create(
 	course: boston_wdi,
 	title: "Whatever",
