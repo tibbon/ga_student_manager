@@ -36,7 +36,7 @@ body {
 }
 
 .info-block {
-	background-color: #8c142b;
+	background-color: #b3b3b3;
 	width: 460px;
 	height: 300px;
 	color: #fff;
@@ -47,12 +47,6 @@ body {
 	width: 180px;
 	height: 33px;
 	background-color: #8c142b;
-	-webkit-border-top-left-radius: 13px;
-	-webkit-border-top-right-radius: 13px;
-	-moz-border-radius-topleft: 13px;
-	-moz-border-radius-topright: 13px;
-	border-top-left-radius: 13px;
-	border-top-right-radius: 13px;
 }
 
 .card-header {
@@ -67,22 +61,16 @@ body {
 	width: 140px;
 	height: 140px;
 	display: inline-block;
-	-webkit-border-radius: 20px;
-	-moz-border-radius: 20px;
-	border-radius: 20px;
 }
 
 #attendance-overall {
 	background-color: #61631f;
-	border: 3px solid #5a0d1c;
 }
 
 #attendance-late {
 	background-color: #b96e1a;
-	border: 3px solid #b86d7c;
 }
 
 #attendance-absent {
 	background-color: #b00c1a;
-	border: 3px solid #b86d7c;
 }
