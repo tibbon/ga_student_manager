@@ -57,20 +57,3 @@ body {
 	line-height: 32px;
 }
 
-#attendance-overall, #attendance-late, #attendance-absent {
-	width: 140px;
-	height: 140px;
-	display: inline-block;
-}
-
-#attendance-overall {
-	background-color: #61631f;
-}
-
-#attendance-late {
-	background-color: #b96e1a;
-}
-
-#attendance-absent {
-	background-color: #b00c1a;
-}

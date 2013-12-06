@@ -13,7 +13,6 @@ body {
 .container-table {
 	width: 95%;
 	margin: 0 auto;
-	border: 2px solid #fff;
 	font-family: "Trebuchet MS", Helvetica, sans-serif;
 	text-align: center;
 	border-collapse: collapse;
@@ -115,9 +114,13 @@ body {
 	line-height: 32px;
 }
 
+.attendance-container {
+
+}
+
 #attendance-overall, #attendance-late, #attendance-absent {
 	width: 140px;
-	height: 140px;
+	height: 18px;
 	display: inline-block;
 }
 

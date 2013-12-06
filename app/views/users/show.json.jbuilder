@@ -5,7 +5,9 @@ json.phone @user.telephone
 json.emergency_name @user.emergency_contact
 json.emergency_hone @user.emergency_contact_phone
 json.bio @user.biography
-json.homework @user.hw_percent
+json.homework @user.completed_homework
+json.recent_homeworks @user.recent_homework
+json.incomplete_homeworks @user.unfinished_homework
 json.quiz @user.quiz_percent
 json.present @user.days_present
 json.late @user.days_late

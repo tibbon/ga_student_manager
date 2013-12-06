@@ -23,6 +23,12 @@
           <div id='user-bio'>Bio: {{student.bio}} </div>
         </div>
 
+        <div class='attendance-container'>
+          <h4>Days Attendance</h4>
+          <div id='attendance-overall'>Present: {{student.present}}</div>
+          <div id='attendance-late'>Late: {{student.late}}</div>
+          <div id='attendance-absent'>Absent: {{student.absent}}</div>
+        </div>
       </div>
     </div>
   </div>
@@ -42,10 +48,16 @@
 
   <div class='card-container'>
     <div class='info-block'>
-      <div class='card-header'>Attendance</div>
-      <div id='attendance-overall'>{{student.present}}</div>
-      <div id='attendance-late'>{{student.late}}</div>
-      <div id='attendance-absent'>{{student.absent}}</div>
+      <div class='card-header'>Homework</div>
+      <div>Completion: {{student.homework.number_completed}} / {{student.homework.number_assigned}} </div>
+      <h4>Recent Turnins</h4>
+      <div ng-repeat="homework in student.recent_homeworks">
+        {{homework}}
+      </div>
+      <h4>Incomplete Homework</h4>
+      <div ng-repeat="homework in student.incomplete_homeworks">
+        <h5><a ng-href="https://github.com/{{homework.github_repo}}">{{homework.title}}</a> - {{homework.due_date | date:'shortDate'}}</h5>
+      </div>
     </div>
   </div>
 

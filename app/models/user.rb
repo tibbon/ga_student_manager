@@ -214,6 +214,14 @@ class User < ActiveRecord::Base
     complete_count.to_f / assigned_count * 100
   end
 
+  def recent_homework
+    assignments.completed_homework.order('updated_at DESC').limit(3)
+  end
+
+  def unfinished_homework
+    assignments.incomplete_homework.order('updated_at DESC')
+  end
+
   def quiz_percent
     rand(0..100)
   end
