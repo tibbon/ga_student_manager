@@ -1,5 +1,6 @@
 json.array! @users do |user|
-  json.name user.first_name
+	json.id user.id
+  json.name user.first_name + " " + user.last_name
   json.homework user.hw_percent
   json.quiz user.quiz_percent
   json.present user.days_present

@@ -10,7 +10,7 @@ studentControllers.controller('StudentListCtrl', ['$scope', '$http',
       $scope.students = data;
     });
 
-    $scope.orderProp = 'name';
+    $scope.orderProp = '-name';
   }]);
 
 studentControllers.controller('PhoneDetailCtrl', ['$scope', '$routeParams', '$http',

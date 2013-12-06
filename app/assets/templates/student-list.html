@@ -3,15 +3,6 @@
       <!--Sidebar content-->
 
       Search: <input ng-model="query">
-      Sort by:
-      <select ng-model="orderProp">
-        <option value="name">Alphabetical</option>
-        <option value="homework">Homework Completion</option>
-        <option value="present">Attendance - Present</option>
-        <option value="late">Attendance - Late</option>
-        <option value="absent">Attendance - Absent</option>
-      </select>
-
     </div>
 </div>
 
@@ -23,16 +14,18 @@
 
 <table class='container-table'>
   <tr class='headings'>
-    <th>Name</th>
-    <th>Homework</th>
-    <th>Quizzes</th>
-    <th>Attendance</th>
-    <th>One on Ones</th>
+    <th><a href="" ng-click="orderProp = '-name'; reverse=false">Name</a> (<a href="" ng-click="orderProp = 'name'; reverse=false">^</a>)</th>
+    <th><a href="" ng-click="orderProp = 'homework'; reverse=!reverse">Homework</a></th>
+    <th><a href="" ng-click="orderProp = 'quiz'; reverse=!reverse">Quizzes</a></th>
+    <th>Attendance <a href="" ng-click="orderProp = 'present'; reverse=!reverse">P</a>, 
+                   <a href="" ng-click="orderProp = 'late'; reverse=!reverse">L</a>, 
+                   <a href="" ng-click="orderProp = 'absent'; reverse=!reverse">A</a></th>
+    <th><a href="" ng-click="orderProp = 'one_one_ones'; reverse=true">One on Ones</a></th>
   </tr>
 
   <!--     iterate here -->
   <tr ng-repeat="student in students | filter:query | orderBy:orderProp:true" class='student'>
-    <td>{{student.name}}</td>
+    <td><a href="#/students/{{student.id}}">{{student.name}}</a></td>
     <td>{{student.homework}}%</td>
     <td>100%</td>
     <td>P: {{student.present}}, L: {{student.late}}, A: {{student.absent}}</td>
