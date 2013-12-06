@@ -6,7 +6,10 @@
       Sort by:
       <select ng-model="orderProp">
         <option value="name">Alphabetical</option>
-        <option value="age">Newest</option>
+        <option value="homework">Homework Completion</option>
+        <option value="present">Attendance - Present</option>
+        <option value="late">Attendance - Late</option>
+        <option value="absent">Attendance - Absent</option>
       </select>
 
     </div>
@@ -28,7 +31,7 @@
   </tr>
 
   <!--     iterate here -->
-  <tr ng-repeat="student in students | filter:query | orderBy:orderProp" class='student'>
+  <tr ng-repeat="student in students | filter:query | orderBy:orderProp:true" class='student'>
     <td>{{student.name}}</td>
     <td>{{student.homework}}%</td>
     <td>100%</td>
